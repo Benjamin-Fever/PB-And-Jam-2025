@@ -10,9 +10,16 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
+config/name="PB & Jam 2025"
+run/main_scene="uid://dbxpwbg420xsr"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0.470137, 2.63997e-05, 0.374592, 1)
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [rendering]
 
