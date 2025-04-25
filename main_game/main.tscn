@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0evnx66fdwj0"]
+
+[ext_resource type="Texture2D" uid="uid://dqx30253sgqy6" path="res://icon.svg" id="1_e11bp"]
+[ext_resource type="Script" uid="uid://de8js28akjj56" path="res://main_game/main.gd" id="1_tt1kf"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_tt1kf")
+
+[node name="RemoveMe" type="Sprite2D" parent="."]
+position = Vector2(665, 458)
+texture = ExtResource("1_e11bp")
