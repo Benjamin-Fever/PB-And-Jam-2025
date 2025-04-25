@@ -30,4 +30,5 @@ visible = false
 [connection signal="switch_to_settings" from="MenuLayer/MainMenu" to="." method="_on_main_menu_switch_to_settings"]
 [connection signal="exit_settings" from="MenuLayer/Settings" to="." method="_on_settings_exit_settings"]
 [connection signal="resume_game" from="MenuLayer/PauseMenu" to="." method="_on_pause_menu_resume_game"]
+[connection signal="switch_to_main_menu" from="MenuLayer/PauseMenu" to="." method="_on_pause_menu_switch_to_main_menu"]
 [connection signal="switch_to_settings" from="MenuLayer/PauseMenu" to="." method="_on_pause_menu_switch_to_settings"]

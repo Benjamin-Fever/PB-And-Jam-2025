@@ -57,13 +57,14 @@ func _on_settings_exit_settings() -> void:
 	previous_menu.visible = true
 
 
-## General use functions
-func open_main_menu() -> void:
+func _on_pause_menu_switch_to_main_menu() -> void:
 	main.visible = false
 	in_menu = true
 	get_tree().paused = true
 	main_menu.visible = true
 
+
+## General use functions
 
 func exit_menus() -> void:
 	for menu in menus:
