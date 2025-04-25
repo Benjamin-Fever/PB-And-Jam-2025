@@ -52,6 +52,11 @@ func _on_pause_menu_switch_to_settings() -> void:
 	previous_menu = pause_menu
 
 
+func _on_settings_exit_settings() -> void:
+	settings.visible = false
+	previous_menu.visible = true
+
+
 ## General use functions
 func open_main_menu() -> void:
 	main.visible = false
