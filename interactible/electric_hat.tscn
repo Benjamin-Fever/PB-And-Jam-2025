@@ -8,20 +8,22 @@
 size = Vector2(204, 131)
 
 [node name="ElectricHat" type="Area2D"]
+z_index = 4
 script = ExtResource("1_yc7jb")
 
-[node name="ElectricHatLine" type="Line2D" parent="."]
-points = PackedVector2Array(0, 0, 0, 141)
-closed = true
-default_color = Color(0.376471, 0.25098, 0.12549, 1)
-
-[node name="Sprite" type="Sprite2D" parent="ElectricHatLine"]
+[node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(17, 0)
 scale = Vector2(0.56294, 0.56294)
 texture = ExtResource("2_iw4lk")
 hframes = 8
 vframes = 5
 frame = 6
+
+[node name="ElectricHatLine" type="Line2D" parent="."]
+z_index = -5
+points = PackedVector2Array(0, 0, 0, 141)
+closed = true
+default_color = Color(0.376471, 0.25098, 0.12549, 1)
 
 [node name="ElectricHat" type="Line2D" parent="ElectricHatLine"]
 z_index = -1
