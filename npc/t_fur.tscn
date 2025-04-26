@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://dl88f08kfcmff"]
+
+[ext_resource type="Script" uid="uid://b4iuxip104blw" path="res://npc/ShaveFurLogic.gd" id="1_kecg5"]
+[ext_resource type="Texture2D" uid="uid://dva71v4wwbg8p" path="res://assets/sprite-sheet.png" id="2_areku"]
+[ext_resource type="Shader" uid="uid://bra0e8u2ycj0j" path="res://assets/shaders/dotted_line.gdshader" id="3_83ws1"]
+[ext_resource type="Texture2D" uid="uid://frtmtl04402j" path="res://assets/items.png" id="4_5ygmt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpjxa"]
+size = Vector2(208.5, 72.85)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cm1li"]
+shader = ExtResource("3_83ws1")
+shader_parameter/color = Color(0.700737, 0.756901, 0.247151, 1)
+shader_parameter/frequency = 0.34
+shader_parameter/speed = -7.77
+
+[sub_resource type="QuadMesh" id="QuadMesh_6asi0"]
+size = Vector2(205.06, 10)
+
+[node name="TFur" type="Area2D" node_paths=PackedStringArray("shave_sprite", "shave_line")]
+script = ExtResource("1_kecg5")
+cut_distance = 300
+shave_sprite = NodePath("MeshInstance2D/Sprite2D")
+shave_line = NodePath("MeshInstance2D")
+
+[node name="Fur" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_areku")
+hframes = 6
+vframes = 3
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -55)
+shape = SubResource("RectangleShape2D_gpjxa")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_cm1li")
+position = Vector2(6, -58)
+mesh = SubResource("QuadMesh_6asi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="MeshInstance2D"]
+visible = false
+position = Vector2(146, 15)
+rotation = -0.750492
+scale = Vector2(-0.3, 0.3)
+texture = ExtResource("4_5ygmt")
+hframes = 8
+vframes = 5
+frame = 4
