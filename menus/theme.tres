@@ -1,31 +1,16 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dxc28yv08vb7w"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dxc28yv08vb7w"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16meu"]
+[ext_resource type="StyleBox" uid="uid://dl14owcqmg74s" path="res://menus/styles/button_hover.tres" id="1_8bp6l"]
+[ext_resource type="StyleBox" uid="uid://dc3ds7uyxhgrv" path="res://menus/styles/button_normal.tres" id="2_lc2ve"]
+[ext_resource type="StyleBox" uid="uid://p0hmwr7lwayj" path="res://menus/styles/button_pressed.tres" id="3_573mk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fters"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_16meu"]
+bg_color = Color(0.268763, 0.268763, 0.268763, 1)
 border_width_left = 40
 border_width_top = 20
 border_width_right = 40
 border_width_bottom = 20
-border_color = Color(0.850051, 0.850051, 0.85005, 1)
-border_blend = true
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-shadow_color = Color(0, 0, 0, 1)
-shadow_size = 5
-shadow_offset = Vector2(-10, -10)
-anti_aliasing_size = 5.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrtyg"]
-bg_color = Color(0.841469, 0.841469, 0.841469, 1)
-border_width_left = 40
-border_width_top = 20
-border_width_right = 40
-border_width_bottom = 20
-border_color = Color(0.706303, 0.706303, 0.706302, 1)
+border_color = Color(0.196502, 0.196502, 0.196502, 1)
 border_blend = true
 corner_radius_top_left = 30
 corner_radius_top_right = 30
@@ -36,22 +21,9 @@ shadow_size = 5
 shadow_offset = Vector2(-10, 10)
 anti_aliasing_size = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bp6l"]
-bg_color = Color(0.628043, 0.628043, 0.628043, 1)
-border_width_left = 40
-border_width_top = 20
-border_width_right = 40
-border_width_bottom = 20
-border_color = Color(0.449099, 0.449099, 0.449099, 1)
-border_blend = true
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-shadow_color = Color(0, 0, 0, 1)
-shadow_size = 5
-shadow_offset = Vector2(-10, -10)
-anti_aliasing_size = 5.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16meu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lc2ve"]
 
 [resource]
 Button/colors/font_color = Color(0.290721, 0.290721, 0.290721, 1)
@@ -61,7 +33,9 @@ Button/colors/font_hover_pressed_color = Color(0.290196, 0.290196, 0.290196, 1)
 Button/colors/font_outline_color = Color(1, 1, 1, 1)
 Button/colors/font_pressed_color = Color(0.290196, 0.290196, 0.290196, 1)
 Button/font_sizes/font_size = 52
+Button/styles/disabled = SubResource("StyleBoxFlat_16meu")
 Button/styles/focus = SubResource("StyleBoxEmpty_16meu")
-Button/styles/hover = SubResource("StyleBoxFlat_fters")
-Button/styles/normal = SubResource("StyleBoxFlat_yrtyg")
-Button/styles/pressed = SubResource("StyleBoxFlat_8bp6l")
+Button/styles/hover = ExtResource("1_8bp6l")
+Button/styles/normal = ExtResource("2_lc2ve")
+Button/styles/pressed = ExtResource("3_573mk")
+CheckButton/styles/normal = SubResource("StyleBoxFlat_lc2ve")
