@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://p5efufgx1aud"]
+
+[ext_resource type="Texture2D" uid="uid://cu0wk1a6wq274" path="res://assets/body_types_chair.png" id="1_m1m71"]
+
+[node name="Chair" type="Sprite2D"]
+scale = Vector2(0.385156, 0.385156)
+texture = ExtResource("1_m1m71")
+hframes = 4

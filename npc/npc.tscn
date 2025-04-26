@@ -102,3 +102,4 @@ libraries = {
 [connection signal="shave_complete" from="Head/LFur" to="." method="_remove_bottom_fur"]
 [connection signal="saw_complete" from="Head/LHorn" to="." method="_remove_left_horn"]
 [connection signal="saw_complete" from="Head/RHorn" to="." method="_remove_right_horn"]
+[connection signal="animation_finished" from="BurnAnimation" to="." method="_on_burn_animation_animation_finished"]

@@ -2,6 +2,8 @@ class_name NPC
 extends Node2D
 
 
+signal burned_up()
+
 enum BodyType {
 	SMALL,
 	MEDIUM,
@@ -56,3 +58,7 @@ func _remove_right_horn():
 
 func _on_lever_start_electrocution() -> void:
 	burn_animation.play("burn")
+
+
+func _on_burn_animation_animation_finished(anim_name: StringName) -> void:
+	burned_up.emit()
