@@ -21,6 +21,8 @@ func _process(_delta):
 
 func _on_area_entered(area):
 	if (area is ItemRegion and (area as ItemRegion).item_state == StateManager.ItemState.SAW):
+		if (StateManager.is_in_action):
+			return
 		saw_sprite.visible = true
 		cut_durability = 3
 		saw_item = area as ItemRegion
