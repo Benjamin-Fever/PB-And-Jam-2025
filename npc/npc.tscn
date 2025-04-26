@@ -67,6 +67,12 @@ frame = 1
 
 [node name="Head" type="Node2D" parent="."]
 
+[node name="LHorn" parent="Head" instance=ExtResource("6_phifv")]
+position = Vector2(0, -33)
+
+[node name="RHorn" parent="Head" instance=ExtResource("7_wuxkc")]
+position = Vector2(0, -33)
+
 [node name="BaseColor" type="Sprite2D" parent="Head"]
 material = ExtResource("1_ocili")
 position = Vector2(0, -33)
@@ -90,19 +96,13 @@ position = Vector2(0, -33)
 [node name="LFur" parent="Head" instance=ExtResource("5_ocili")]
 position = Vector2(0, -33)
 
-[node name="LHorn" parent="Head" instance=ExtResource("6_phifv")]
-position = Vector2(0, -33)
-
-[node name="RHorn" parent="Head" instance=ExtResource("7_wuxkc")]
-position = Vector2(0, -33)
-
 [node name="BurnAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_wuxkc")
 }
 
-[connection signal="shave_complete" from="Head/TFur" to="." method="_remove_top_fur"]
-[connection signal="shave_complete" from="Head/LFur" to="." method="_remove_bottom_fur"]
 [connection signal="saw_complete" from="Head/LHorn" to="." method="_remove_left_horn"]
 [connection signal="saw_complete" from="Head/RHorn" to="." method="_remove_right_horn"]
+[connection signal="shave_complete" from="Head/TFur" to="." method="_remove_top_fur"]
+[connection signal="shave_complete" from="Head/LFur" to="." method="_remove_bottom_fur"]
 [connection signal="animation_finished" from="BurnAnimation" to="." method="_on_burn_animation_animation_finished"]
