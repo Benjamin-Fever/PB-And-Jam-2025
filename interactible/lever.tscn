@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://m4eiypsbe703"]
+
+[ext_resource type="Script" uid="uid://bx50wh1ea8klh" path="res://interactible/VoltageRegion.gd" id="1_4chhh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jkqm"]
+size = Vector2(56.03, 139.153)
+
+[node name="Lever" type="Area2D" node_paths=PackedStringArray("lever_pivot")]
+script = ExtResource("1_4chhh")
+voltage_med_rotation = 90
+voltage_high_rotation = 180
+lever_pivot = NodePath("")
+item_state = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-55, 1)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_1jkqm")

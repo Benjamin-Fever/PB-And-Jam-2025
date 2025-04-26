@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cse742bt86tqf"]
+
+[ext_resource type="Script" uid="uid://cl86knhdy2fa3" path="res://interactible/Interaction.gd" id="1_ceotn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sayuc"]
+size = Vector2(99.935, 154.715)
+
+[node name="Lever" type="Area2D"]
+script = ExtResource("1_ceotn")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.13556, 0.13556, 0.13556, 1)
+polygon = PackedVector2Array(-38, -67, 42, -68, 46, 65, -41, 63)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+color = Color(0.484797, 0.484797, 0.484797, 1)
+polygon = PackedVector2Array(-25, -48, -26, -1, -19, -3, -19, -13, 19, -13, 22, 1, 29, 0, 27, -49, 8, -49, 7, -78, -10, -78, -8, -49)
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+visible = false
+rotation = -3.14159
+color = Color(0.484797, 0.484797, 0.484797, 1)
+polygon = PackedVector2Array(-25, -48, -26, -1, -19, -3, -19, -13, 19, -13, 22, 1, 29, 0, 27, -49, 8, -49, 7, -78, -10, -78, -8, -49)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6.35748)
+shape = SubResource("RectangleShape2D_sayuc")

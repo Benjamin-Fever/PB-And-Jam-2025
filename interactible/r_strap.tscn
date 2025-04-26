@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfoep86cfvcxf"]
+
+[ext_resource type="Script" uid="uid://cl86knhdy2fa3" path="res://interactible/Interaction.gd" id="1_hp6du"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1cmj"]
+size = Vector2(80, 80)
+
+[node name="RStrap" type="Area2D"]
+script = ExtResource("1_hp6du")
+interact_type = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f1cmj")

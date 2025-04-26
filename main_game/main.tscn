@@ -1,32 +1,19 @@
-[gd_scene load_steps=16 format=3 uid="uid://c0evnx66fdwj0"]
+[gd_scene load_steps=13 format=3 uid="uid://c0evnx66fdwj0"]
 
 [ext_resource type="Script" path="res://main_game/main.gd" id="1_tt1kf"]
 [ext_resource type="Texture2D" uid="uid://1i3ejuo1srwu" path="res://assets/bg.png" id="2_qofrp"]
-[ext_resource type="Script" uid="uid://dm5kg2m4qklss" path="res://interactible/ItemRegion.gd" id="3_60na2"]
 [ext_resource type="PackedScene" uid="uid://5krx5qch8jer" path="res://npc/npc.tscn" id="3_os3gg"]
 [ext_resource type="Script" uid="uid://lf51llnx6jup" path="res://interactible/ItemSelector.gd" id="4_1jkqm"]
-[ext_resource type="Script" uid="uid://bx50wh1ea8klh" path="res://interactible/VoltageRegion.gd" id="5_1jkqm"]
 [ext_resource type="PackedScene" uid="uid://vgm28rnd3660" path="res://interactible/shaver.tscn" id="5_7km35"]
-[ext_resource type="Script" uid="uid://cl86knhdy2fa3" path="res://interactible/Interaction.gd" id="6_qofrp"]
-[ext_resource type="Texture2D" uid="uid://frtmtl04402j" path="res://assets/items.png" id="6_xvufe"]
+[ext_resource type="PackedScene" uid="uid://d2vu60epyo0j" path="res://interactible/saw.tscn" id="6_7km35"]
+[ext_resource type="PackedScene" uid="uid://0rgcdwbx45g2" path="res://interactible/sponge.tscn" id="7_f1cmj"]
+[ext_resource type="PackedScene" uid="uid://m4eiypsbe703" path="res://interactible/lever.tscn" id="8_d214i"]
+[ext_resource type="PackedScene" uid="uid://cu7ao8xsukme7" path="res://interactible/l_strap.tscn" id="9_sayuc"]
+[ext_resource type="PackedScene" uid="uid://dfoep86cfvcxf" path="res://interactible/r_strap.tscn" id="10_i82q8"]
+[ext_resource type="PackedScene" uid="uid://cse742bt86tqf" path="res://interactible/lever2.tscn" id="11_d214i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qofrp"]
 size = Vector2(1, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvufe"]
-size = Vector2(120.685, 198.163)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7km35"]
-size = Vector2(106.615, 177.315)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jkqm"]
-size = Vector2(56.03, 139.153)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1cmj"]
-size = Vector2(80, 80)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sayuc"]
-size = Vector2(99.935, 154.715)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tt1kf")
@@ -55,57 +42,18 @@ position = Vector2(966, 540)
 [node name="Shaver" parent="Interactables/Table" instance=ExtResource("5_7km35")]
 position = Vector2(1605, 985)
 
-[node name="Saw" type="Area2D" parent="Interactables/Table"]
+[node name="Saw" parent="Interactables/Table" instance=ExtResource("6_7km35")]
 position = Vector2(1431, 987)
-script = ExtResource("3_60na2")
-item_state = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Interactables/Table/Saw"]
-position = Vector2(11.4546, -17.3722)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_xvufe")
-hframes = 8
-vframes = 5
-frame = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Table/Saw"]
-position = Vector2(-1, -4)
-rotation = 0.401426
-shape = SubResource("RectangleShape2D_xvufe")
-
-[node name="Sponge" type="Area2D" parent="Interactables/Table"]
+[node name="Sponge" parent="Interactables/Table" instance=ExtResource("7_f1cmj")]
 position = Vector2(1731, 978)
-script = ExtResource("3_60na2")
-item_state = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Interactables/Table/Sponge"]
-position = Vector2(11.4546, -17.3722)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("6_xvufe")
-hframes = 8
-vframes = 5
-frame = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Table/Sponge"]
-position = Vector2(-5.99988, -6)
-rotation = 0.356759
-shape = SubResource("RectangleShape2D_7km35")
 
 [node name="Voltage" type="Node2D" parent="Interactables"]
 position = Vector2(1262, 382)
 
-[node name="Lever" type="Area2D" parent="Interactables/Voltage" node_paths=PackedStringArray("lever_pivot")]
+[node name="Lever" parent="Interactables/Voltage" node_paths=PackedStringArray("lever_pivot") instance=ExtResource("8_d214i")]
 position = Vector2(1, 35)
-script = ExtResource("5_1jkqm")
-voltage_med_rotation = 90
-voltage_high_rotation = 180
 lever_pivot = NodePath("../Pivot")
-item_state = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Voltage/Lever"]
-position = Vector2(-55, 1)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_1jkqm")
 
 [node name="Pivot" type="Node2D" parent="Interactables/Voltage"]
 position = Vector2(-1, 36)
@@ -124,40 +72,11 @@ polygon = PackedVector2Array(338, 168, 315, 174, 282, 208, 285, 227, 400, 227, 4
 [node name="Lever" type="Node2D" parent="Interactables"]
 position = Vector2(1258, 574)
 
-[node name="LStrap" type="Area2D" parent="Interactables"]
+[node name="LStrap" parent="Interactables" instance=ExtResource("9_sayuc")]
 position = Vector2(831, 565)
-script = ExtResource("6_qofrp")
-interact_type = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/LStrap"]
-shape = SubResource("RectangleShape2D_f1cmj")
-
-[node name="RStrap" type="Area2D" parent="Interactables"]
+[node name="RStrap" parent="Interactables" instance=ExtResource("10_i82q8")]
 position = Vector2(1063, 566)
-script = ExtResource("6_qofrp")
-interact_type = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/RStrap"]
-shape = SubResource("RectangleShape2D_f1cmj")
-
-[node name="Lever" type="Area2D" parent="."]
+[node name="Lever" parent="." instance=ExtResource("11_d214i")]
 position = Vector2(1257, 575)
-script = ExtResource("6_qofrp")
-
-[node name="Polygon2D" type="Polygon2D" parent="Lever"]
-color = Color(0.13556, 0.13556, 0.13556, 1)
-polygon = PackedVector2Array(-38, -67, 42, -68, 46, 65, -41, 63)
-
-[node name="Polygon2D2" type="Polygon2D" parent="Lever"]
-color = Color(0.484797, 0.484797, 0.484797, 1)
-polygon = PackedVector2Array(-25, -48, -26, -1, -19, -3, -19, -13, 19, -13, 22, 1, 29, 0, 27, -49, 8, -49, 7, -78, -10, -78, -8, -49)
-
-[node name="Polygon2D3" type="Polygon2D" parent="Lever"]
-visible = false
-rotation = -3.14159
-color = Color(0.484797, 0.484797, 0.484797, 1)
-polygon = PackedVector2Array(-25, -48, -26, -1, -19, -3, -19, -13, 19, -13, 22, 1, 29, 0, 27, -49, 8, -49, 7, -78, -10, -78, -8, -49)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever"]
-position = Vector2(0, -6.35748)
-shape = SubResource("RectangleShape2D_sayuc")
