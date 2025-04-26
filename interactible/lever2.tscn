@@ -1,9 +1,65 @@
-[gd_scene load_steps=3 format=3 uid="uid://cse742bt86tqf"]
+[gd_scene load_steps=6 format=3 uid="uid://cse742bt86tqf"]
 
-[ext_resource type="Script" uid="uid://cl86knhdy2fa3" path="res://interactible/Interaction.gd" id="1_ceotn"]
+[ext_resource type="Script" uid="uid://bdg2ktsiqw4kl" path="res://interactible/lever_2.gd" id="1_ceotn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sayuc"]
 size = Vector2(99.935, 154.715)
+
+[sub_resource type="Animation" id="Animation_ceotn"]
+resource_name = "flick"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Polygon2D2:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Polygon2D2:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, -1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_ohcoo"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Polygon2D2:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Polygon2D2:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7pu75"]
+_data = {
+&"RESET": SubResource("Animation_ohcoo"),
+&"flick": SubResource("Animation_ceotn")
+}
 
 [node name="Lever" type="Area2D"]
 script = ExtResource("1_ceotn")
@@ -25,3 +81,10 @@ polygon = PackedVector2Array(-25, -48, -26, -1, -19, -3, -19, -13, 19, -13, 22, 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6.35748)
 shape = SubResource("RectangleShape2D_sayuc")
+
+[node name="FlickAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7pu75")
+}
+
+[connection signal="animation_finished" from="FlickAnimator" to="." method="_on_flick_animator_animation_finished"]

@@ -20,6 +20,8 @@ func _input(event):
 		if item is ItemRegion and selected_item == null:
 			selected_item = item
 			StateManager.current_item = item.item_state
+		elif item is Interaction and selected_item == null:
+			item.interact_with()
 
 	elif event.is_action_released("mouse_click") and selected_item and !StateManager.is_in_action:
 		if selected_item is VoltageRegion:
