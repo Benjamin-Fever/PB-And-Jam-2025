@@ -36,7 +36,7 @@ popup/item_3/id = 3
 popup/item_4/text = "Exclusive Fullscreen"
 popup/item_4/id = 4
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator1" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 
 [node name="Resolution" parent="VBoxContainer" instance=ExtResource("1_twyt4")]
@@ -47,5 +47,27 @@ title = "Resolution"
 layout_mode = 2
 size_flags_horizontal = 6
 
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Vsync" parent="VBoxContainer" instance=ExtResource("1_twyt4")]
+layout_mode = 2
+title = "Vsync"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/Vsync"]
+layout_mode = 2
+size_flags_horizontal = 6
+selected = 0
+item_count = 4
+popup/item_0/text = "Enabled"
+popup/item_0/id = 0
+popup/item_1/text = "Disabled"
+popup/item_1/id = 1
+popup/item_2/text = "Adaptive"
+popup/item_2/id = 2
+popup/item_3/text = "Mailbox"
+popup/item_3/id = 3
+
 [connection signal="item_selected" from="VBoxContainer/Fullscreen/FullscreenOption" to="." method="_on_fullscreen_option_item_selected"]
 [connection signal="item_selected" from="VBoxContainer/Resolution/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/Vsync/OptionButton" to="." method="_on_option_button_item_selected"]

@@ -6,15 +6,17 @@ extends ScrollContainer
 
 @onready var resolution_option: OptionButton = $VBoxContainer/Resolution/ResolutionOption
 @onready var fullscreen: Setting = $VBoxContainer/Fullscreen
-@onready var h_separator0: HSeparator = $VBoxContainer/HSeparator
+@onready var h_separator1: HSeparator = $VBoxContainer/HSeparator1
 @onready var resolution: Setting = $VBoxContainer/Resolution
+@onready var h_separator_2: HSeparator = $VBoxContainer/HSeparator2
 
 
 func _ready() -> void:
 	if get_window().is_embedded() || Engine.is_embedded_in_editor():
 		fullscreen.visible = false
-		h_separator0.visible = false
+		h_separator1.visible = false
 		resolution.visible = false
+		h_separator_2.visible = false
 	
 	resolution_option.clear()
 	for i in range(resolutions.size()):
@@ -30,3 +32,11 @@ func _on_resolution_option_item_selected(index: int) -> void:
 
 func _on_fullscreen_option_item_selected(index: int) -> void:
 	DisplayServer.window_set_mode(index)
+
+
+func _on_option_button_item_selected(index: int) -> void:
+	DisplayServer.window_set_vsync_mode(index)
+
+
+func start_reset_countdown() -> void:
+	pass # TODO: implement resetting settings
