@@ -10,6 +10,7 @@ title = "Setting Name Here"
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 10
+text = "Setting Name Here"
 
 [node name="VSeparator" type="VSeparator" parent="."]
 layout_mode = 2

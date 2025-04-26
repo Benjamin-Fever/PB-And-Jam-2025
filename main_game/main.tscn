@@ -54,6 +54,7 @@ position = Vector2(1431, 987)
 position = Vector2(1731, 978)
 
 [node name="Voltage" type="Node2D" parent="Interactables"]
+z_index = -1
 position = Vector2(1262, 382)
 
 [node name="Lever" parent="Interactables/Voltage" node_paths=PackedStringArray("lever_pivot") instance=ExtResource("8_d214i")]
@@ -84,6 +85,7 @@ position = Vector2(831, 565)
 position = Vector2(1063, 566)
 
 [node name="Lever" parent="." instance=ExtResource("11_d214i")]
+z_index = -1
 position = Vector2(1257, 575)
 
 [connection signal="burned_up" from="NPC" to="." method="_on_npc_burned_up"]
