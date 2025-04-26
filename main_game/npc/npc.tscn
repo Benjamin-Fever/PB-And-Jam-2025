@@ -53,8 +53,10 @@ hframes = 6
 vframes = 3
 frame = 2
 
-[node name="LHorn" type="Area2D" parent="Head"]
+[node name="LHorn" type="Area2D" parent="Head" node_paths=PackedStringArray("saw_sprite", "saw_line")]
 script = ExtResource("2_hrq28")
+saw_sprite = NodePath("MeshInstance2D/Polygon2D")
+saw_line = NodePath("MeshInstance2D")
 
 [node name="Horn" type="Sprite2D" parent="Head/LHorn"]
 scale = Vector2(0.4, 0.4)
@@ -80,8 +82,10 @@ scale = Vector2(0.6, 0.6)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(325.74, 111.037, 287.237, 222.066, 271.601, 228.739, 261.126, 298.448, 367.825, 245.293, 376.831, 192.521, 361.734, 190.267, 388.798, 179.802, 368.598, 165.591, 384.783, 142.374, 379.152, 131.73, 413.092, 88.9735)
 
-[node name="RHorn" type="Area2D" parent="Head"]
+[node name="RHorn" type="Area2D" parent="Head" node_paths=PackedStringArray("saw_sprite", "saw_line")]
 script = ExtResource("2_hrq28")
+saw_sprite = NodePath("MeshInstance2D/Polygon2D")
+saw_line = NodePath("MeshInstance2D")
 
 [node name="Horn" type="Sprite2D" parent="Head/RHorn"]
 scale = Vector2(0.4, 0.4)
@@ -99,3 +103,10 @@ material = SubResource("ShaderMaterial_cm1li")
 position = Vector2(53, -29)
 rotation = 0.258309
 mesh = SubResource("QuadMesh_gpjxa")
+
+[node name="Polygon2D" type="Polygon2D" parent="Head/RHorn/MeshInstance2D"]
+position = Vector2(68.6677, -252.932)
+rotation = 1.52113
+scale = Vector2(0.6, 1.015)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(325.74, 111.037, 287.237, 222.066, 271.601, 228.739, 261.126, 298.448, 367.825, 245.293, 376.831, 192.521, 361.734, 190.267, 388.798, 179.802, 368.598, 165.591, 384.783, 142.374, 379.152, 131.73, 413.092, 88.9735)
