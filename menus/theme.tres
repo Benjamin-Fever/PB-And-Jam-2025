@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dxc28yv08vb7w"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dxc28yv08vb7w"]
 
 [ext_resource type="StyleBox" uid="uid://dl14owcqmg74s" path="res://menus/styles/button_hover.tres" id="1_8bp6l"]
 [ext_resource type="StyleBox" uid="uid://ck03au0btbqwu" path="res://menus/styles/button_disabled.tres" id="1_lc2ve"]
@@ -7,6 +7,38 @@
 [ext_resource type="StyleBox" uid="uid://bflejwrxty8q3" path="res://menus/styles/button_hover_pressed.tres" id="3_tnb7w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16meu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_573mk"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 40
+border_width_top = 20
+border_width_right = 40
+border_width_bottom = 20
+border_color = Color(0.850051, 0.850051, 0.85005, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-10, 10)
+anti_aliasing_size = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnb7w"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 40
+border_width_top = 20
+border_width_right = 40
+border_width_bottom = 20
+border_color = Color(0.706303, 0.706303, 0.706302, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-10, 10)
+anti_aliasing_size = 5.0
 
 [resource]
 Button/colors/font_color = Color(0.290721, 0.290721, 0.290721, 1)
@@ -22,3 +54,9 @@ Button/styles/hover = ExtResource("1_8bp6l")
 Button/styles/hover_pressed = ExtResource("3_tnb7w")
 Button/styles/normal = ExtResource("2_lc2ve")
 Button/styles/pressed = ExtResource("3_573mk")
+PopupMenu/colors/font_color = Color(0.290196, 0.290196, 0.290196, 1)
+PopupMenu/colors/font_hover_color = Color(0.290196, 0.290196, 0.290196, 1)
+PopupMenu/colors/font_separator_color = Color(0.290196, 0.290196, 0.290196, 1)
+PopupMenu/font_sizes/font_size = 36
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_573mk")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_tnb7w")
