@@ -10,9 +10,7 @@ signal start_electrocution
 
 func interact_with() -> void:
 	if npc.has_bottom_fur or npc.has_top_fur or npc.has_left_horn or npc.has_right_horn:
-		print(npc.has_bottom_fur, npc.has_top_fur, npc.has_left_horn, npc.has_right_horn)
 		return
-	print("Electrocution lever pressed")
 	flick_animator.play("flick")
 
 
