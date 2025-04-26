@@ -28,6 +28,8 @@ const BODY_TYPE_OFFSETS = [Vector2(0, 0), Vector2(0, -40), Vector2(0, -75)]
 @export var right_horn: Node2D
 @export var head: Node2D
 @export var body: Sprite2D
+@export var BaseColor: Sprite2D
+@export var Face: Sprite2D
 
 @onready var burn_animation: AnimationPlayer = $BurnAnimation
 @onready var face: Sprite2D = $Head/Face
@@ -70,3 +72,10 @@ func _on_lever_start_electrocution() -> void:
 
 func _on_burn_animation_animation_finished(_anim_name: StringName) -> void:
 	burned_up.emit()
+
+
+func update_shave_pos() -> void:
+	top_fur.initial_saw_position = top_fur.global_position
+	bottom_fur.initial_saw_position = bottom_fur.global_position
+	left_horn.initial_saw_position = left_horn.global_position
+	right_horn.initial_saw_position = right_horn.global_position

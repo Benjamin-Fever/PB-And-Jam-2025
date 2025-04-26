@@ -23,6 +23,8 @@ func _ready():
 
 
 func _process(_delta):
+	initial_saw_position = saw_sprite.global_position
+	
 	saw_line.visible = StateManager.current_item == StateManager.ItemState.SAW
 	var mouse_pos = get_global_mouse_position()
 

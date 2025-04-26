@@ -25,7 +25,10 @@ func _on_npc_burned_up() -> void:
 	new_npc.has_right_horn = randf() > 0.5
 	new_npc.current_body_type = randi_range(NPC.BodyType.SMALL, NPC.BodyType.LARGE)
 	new_npc.position = Vector2(START_X_POS, 358)
+	new_npc.material = new_npc.material.duplicate(true)
+	new_npc.material.set_shader_parameter("radius", 0.0)
 	add_child(new_npc)
+	call_deferred("reset_materials", new_npc)
 	
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_LINEAR)
 	tween.set_parallel()
@@ -37,8 +40,16 @@ func _on_npc_burned_up() -> void:
 	tween.tween_callback(destroy_old_npc_chair.bind(new_npc, new_chair))
 
 
+func reset_materials(new_npc) -> void:
+	new_npc.base_color.material = new_npc.material
+	new_npc.face.material = new_npc.material
+	new_npc.body.material = new_npc.material
+
+
 func destroy_old_npc_chair(new_npc, new_chair) -> void:
 	npc.queue_free()
 	chair.queue_free()
 	npc = new_npc
 	chair = new_chair
+	
+	npc.update_shave_pos()

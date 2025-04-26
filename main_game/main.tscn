@@ -43,6 +43,7 @@ position = Vector2(960, 540)
 [node name="Interactables" type="Node2D" parent="."]
 
 [node name="Table" type="Node2D" parent="Interactables"]
+z_index = 1
 
 [node name="Shaver" parent="Interactables/Table" instance=ExtResource("5_7km35")]
 position = Vector2(1605, 985)

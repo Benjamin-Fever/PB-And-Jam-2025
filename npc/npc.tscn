@@ -44,7 +44,7 @@ _data = {
 &"burn": SubResource("Animation_ocili")
 }
 
-[node name="NPC" type="Node2D" node_paths=PackedStringArray("top_fur", "bottom_fur", "face_sprite", "left_horn", "right_horn", "head", "body")]
+[node name="NPC" type="Node2D" node_paths=PackedStringArray("top_fur", "bottom_fur", "face_sprite", "left_horn", "right_horn", "head", "body", "BaseColor", "Face")]
 material = ExtResource("1_ocili")
 script = ExtResource("1_uqrw3")
 top_fur = NodePath("Head/TFur")
@@ -54,6 +54,8 @@ left_horn = NodePath("Head/LHorn")
 right_horn = NodePath("Head/RHorn")
 head = NodePath("Head")
 body = NodePath("Body")
+BaseColor = NodePath("Head/BaseColor")
+Face = NodePath("Head/Face")
 
 [node name="Body" type="Sprite2D" parent="."]
 material = ExtResource("1_ocili")
