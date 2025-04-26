@@ -14,17 +14,18 @@ const CHAIR = preload("res://npc/chair.tscn")
 
 
 func _on_npc_burned_up() -> void:
+	var new_chair = CHAIR.instantiate()
+	new_chair.position = Vector2(START_X_POS, 540)
+	add_child(new_chair)
+	
 	var new_npc = NPC_SCENE.instantiate()
 	new_npc.has_bottom_fur = randf() > 0.5
 	new_npc.has_top_fur = randf() > 0.5
 	new_npc.has_left_horn = randf() > 0.5
 	new_npc.has_right_horn = randf() > 0.5
 	new_npc.current_body_type = randi_range(NPC.BodyType.SMALL, NPC.BodyType.LARGE)
-	
 	new_npc.position = Vector2(START_X_POS, 358)
-	
-	var new_chair = CHAIR.instantiate()
-	new_chair.position = Vector2(START_X_POS, 540)
+	add_child(new_npc)
 	
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_LINEAR)
 	tween.set_parallel()

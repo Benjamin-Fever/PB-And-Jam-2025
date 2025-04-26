@@ -27,8 +27,11 @@ const BODY_TYPE_OFFSETS = [Vector2(0, 0), Vector2(0, -40), Vector2(0, -75)]
 @export var left_horn: Node2D
 @export var right_horn: Node2D
 @export var head: Node2D
+@export var body: Sprite2D
 
 @onready var burn_animation: AnimationPlayer = $BurnAnimation
+@onready var face: Sprite2D = $Head/Face
+@onready var base_color: Sprite2D = $Head/BaseColor
 
 
 func _ready():
@@ -42,15 +45,20 @@ func _update():
 	left_horn.visible = has_left_horn
 	right_horn.visible = has_right_horn
 	head.position = BODY_TYPE_OFFSETS[current_body_type]
+	body.frame = current_body_type + 1
+
 
 func _remove_top_fur():
 	has_top_fur = false
 
+
 func _remove_bottom_fur():
 	has_bottom_fur = false
 
+
 func _remove_left_horn():
 	has_left_horn = false
+
 
 func _remove_right_horn():
 	has_right_horn = false
