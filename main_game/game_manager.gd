@@ -69,4 +69,4 @@ func exit_menus() -> void:
 	for menu in menus:
 		menu.visible = false
 	in_menu = false
-	get_tree().paused = true
+	get_tree().paused = false
