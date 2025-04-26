@@ -1,11 +1,170 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0evnx66fdwj0"]
+[gd_scene load_steps=14 format=3 uid="uid://c0evnx66fdwj0"]
 
-[ext_resource type="Texture2D" uid="uid://dqx30253sgqy6" path="res://icon.svg" id="1_e11bp"]
-[ext_resource type="Script" uid="uid://de8js28akjj56" path="res://main_game/main.gd" id="1_tt1kf"]
+[ext_resource type="Texture2D" uid="uid://1i3ejuo1srwu" path="res://assets/bg.png" id="2_qofrp"]
+[ext_resource type="Script" uid="uid://dm5kg2m4qklss" path="res://main_game/items/ItemRegion.gd" id="3_60na2"]
+[ext_resource type="PackedScene" uid="uid://5krx5qch8jer" path="res://main_game/npc/npc.tscn" id="3_os3gg"]
+[ext_resource type="Script" uid="uid://gei056kp8rnk" path="res://main_game/items/ItemState.gd" id="3_qm037"]
+[ext_resource type="Script" uid="uid://lf51llnx6jup" path="res://main_game/items/ItemSelector.gd" id="4_1jkqm"]
+[ext_resource type="Script" uid="uid://bx50wh1ea8klh" path="res://main_game/items/VoltageRegion.gd" id="5_1jkqm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qofrp"]
+size = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_os3gg"]
+size = Vector2(71.7551, 195.088)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvufe"]
+size = Vector2(114.79, 195.088)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7km35"]
+size = Vector2(85, 147.675)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jkqm"]
+size = Vector2(56.03, 139.153)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1cmj"]
+size = Vector2(80, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d214i"]
+size = Vector2(175, 80)
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_tt1kf")
 
-[node name="RemoveMe" type="Sprite2D" parent="."]
-position = Vector2(665, 458)
-texture = ExtResource("1_e11bp")
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(960, 535)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_qofrp")
+
+[node name="NPC" parent="." instance=ExtResource("3_os3gg")]
+
+[node name="ItemState" type="Node2D" parent="."]
+script = ExtResource("3_qm037")
+
+[node name="ItemSelector" type="Area2D" parent="."]
+script = ExtResource("4_1jkqm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemSelector"]
+shape = SubResource("RectangleShape2D_qofrp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(966, 540)
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="Table" type="Node2D" parent="Interactables"]
+
+[node name="Shaver" type="Area2D" parent="Interactables/Table"]
+position = Vector2(1608, 974)
+rotation = 0.373198
+script = ExtResource("3_60na2")
+item_state = 3
+
+[node name="Polygon2D" type="Polygon2D" parent="Interactables/Table/Shaver"]
+position = Vector2(-347, -167)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(293, 114, 383, 113, 363, 178, 360, 261, 329, 245, 336, 174)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Table/Shaver"]
+position = Vector2(-8, 18)
+shape = SubResource("RectangleShape2D_os3gg")
+
+[node name="Saw" type="Area2D" parent="Interactables/Table"]
+position = Vector2(1458, 973)
+rotation = 0.403429
+script = ExtResource("3_60na2")
+item_state = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="Interactables/Table/Saw"]
+position = Vector2(-347.456, -167.005)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(325.74, 111.037, 287.237, 222.066, 271.601, 228.739, 261.126, 298.448, 367.825, 245.293, 376.831, 192.521, 361.734, 190.267, 388.798, 179.802, 368.598, 165.591, 384.783, 142.374, 379.152, 131.73, 413.092, 88.9735)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Table/Saw"]
+position = Vector2(-8.68787, 17.7534)
+rotation = 0.34422
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_xvufe")
+
+[node name="Sponge" type="Area2D" parent="Interactables/Table"]
+position = Vector2(1746, 948)
+script = ExtResource("3_60na2")
+item_state = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="Interactables/Table/Sponge"]
+position = Vector2(-347, -167)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(359, 204, 378, 185, 381, 167, 373, 151, 362, 148, 346, 155, 320, 153, 302, 154, 291, 168, 294, 188, 295, 213, 282, 225, 273, 238, 266, 254, 275, 271, 287, 273, 300, 269, 318, 273, 340, 273, 353, 259, 360, 242, 350, 221)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Table/Sponge"]
+position = Vector2(-24.1024, 39.2256)
+rotation = 0.356759
+shape = SubResource("RectangleShape2D_7km35")
+
+[node name="Voltage" type="Node2D" parent="Interactables"]
+position = Vector2(1262, 382)
+
+[node name="Lever" type="Area2D" parent="Interactables/Voltage" node_paths=PackedStringArray("lever_pivot")]
+position = Vector2(1, 35)
+script = ExtResource("5_1jkqm")
+voltage_med_rotation = 90
+voltage_high_rotation = 180
+lever_pivot = NodePath("../Pivot")
+item_state = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Voltage/Lever"]
+position = Vector2(-55, 1)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_1jkqm")
+
+[node name="Pivot" type="Node2D" parent="Interactables/Voltage"]
+position = Vector2(-1, 36)
+
+[node name="Polygon2D" type="Polygon2D" parent="Interactables/Voltage/Pivot"]
+position = Vector2(-239, 348)
+rotation = -1.5708
+color = Color(0.52434, 0.52434, 0.52434, 1)
+polygon = PackedVector2Array(340, 159, 340, 246, 353, 246, 353, 157, 361, 153, 361, 142, 348, 130, 340, 130, 327, 137, 329, 153)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Interactables/Voltage"]
+position = Vector2(-349, -169)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(338, 168, 315, 174, 282, 208, 285, 227, 400, 227, 400, 203, 375, 173, 356, 167)
+
+[node name="Lever" type="Node2D" parent="Interactables"]
+position = Vector2(1258, 574)
+
+[node name="Polygon2D" type="Polygon2D" parent="Interactables/Lever"]
+color = Color(0.13556, 0.13556, 0.13556, 1)
+polygon = PackedVector2Array(-38, -67, 42, -68, 46, 65, -41, 63)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Interactables/Lever"]
+color = Color(0.484797, 0.484797, 0.484797, 1)
+polygon = PackedVector2Array(-25, -48, -26, -1, -19, -3, -19, -13, 19, -13, 22, 1, 29, 0, 27, -49, 8, -49, 7, -78, -10, -78, -8, -49)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Interactables/Lever"]
+visible = false
+position = Vector2(2, -12)
+rotation = -3.14159
+color = Color(0.484797, 0.484797, 0.484797, 1)
+polygon = PackedVector2Array(-25, -48, -26, -1, -19, -3, -19, -13, 19, -13, 22, 1, 29, 0, 27, -49, 8, -49, 7, -78, -10, -78, -8, -49)
+
+[node name="LStrap" type="Area2D" parent="Interactables"]
+position = Vector2(831, 565)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/LStrap"]
+shape = SubResource("RectangleShape2D_f1cmj")
+
+[node name="RStrap" type="Area2D" parent="Interactables"]
+position = Vector2(1063, 566)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/RStrap"]
+shape = SubResource("RectangleShape2D_f1cmj")
+
+[node name="Head" type="Area2D" parent="Interactables"]
+position = Vector2(942, 278)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Head"]
+position = Vector2(2.5, 0)
+shape = SubResource("RectangleShape2D_d214i")
+
+[connection signal="item_selected" from="ItemSelector" to="ItemState" method="_change_state"]

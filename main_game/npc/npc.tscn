@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://5krx5qch8jer"]
+
+[ext_resource type="Texture2D" uid="uid://v48vpo3p7com" path="res://assets/dashed_line.png" id="1_qvyww"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwlxj"]
+size = Vector2(103.892, 98.7095)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqrw3"]
+size = Vector2(80.2451, 113.157)
+
+[node name="NPC" type="Node2D"]
+
+[node name="Head" type="Node2D" parent="."]
+
+[node name="Base" type="Polygon2D" parent="Head"]
+color = Color(0.749879, 0.749879, 0.749879, 1)
+polygon = PackedVector2Array(929, 331, 917, 325, 876, 350, 882, 360, 876, 385, 886, 441, 926, 477, 988, 477, 1017, 429, 1021, 371, 1025, 350, 989, 331, 986, 333, 970, 338, 956, 338)
+
+[node name="Fur" type="Polygon2D" parent="Head"]
+color = Color(0.74902, 0.74902, 0.74902, 1)
+polygon = PackedVector2Array(926, 334, 929, 322, 936, 336, 942, 327, 949, 340, 955, 331, 966, 340, 968, 333, 978, 340, 982, 328, 986, 336, 1018, 361, 1026, 366, 1015, 377, 1023, 387, 1013, 395, 1023, 407, 1015, 412, 1022, 423, 1008, 429, 1018, 442, 1005, 440, 889, 457, 896, 444, 882, 447, 889, 436, 880, 433, 888, 423, 877, 415, 884, 406, 868, 397, 885, 388, 870, 380, 887, 373, 868, 367, 901, 363)
+
+[node name="LHorn" type="Area2D" parent="Head"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/LHorn"]
+position = Vector2(872.011, 296.096)
+rotation = -0.54509
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_wwlxj")
+
+[node name="Polygon2D" type="Polygon2D" parent="Head/LHorn"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(876, 350, 839, 263, 917, 325)
+
+[node name="DashedLine" type="Sprite2D" parent="Head/LHorn"]
+position = Vector2(893, 339)
+rotation = -0.522886
+scale = Vector2(0.3, 0.6)
+texture = ExtResource("1_qvyww")
+
+[node name="RHorn2" type="Area2D" parent="Head"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/RHorn2"]
+position = Vector2(1030.63, 289.696)
+rotation = 0.544543
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_uqrw3")
+
+[node name="Polygon2D" type="Polygon2D" parent="Head/RHorn2"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(989, 331, 1025, 350, 1056, 252)
+
+[node name="DashedLine" type="Sprite2D" parent="Head/RHorn2"]
+position = Vector2(1013, 343)
+rotation = 0.523599
+scale = Vector2(0.3, 0.6)
+texture = ExtResource("1_qvyww")
