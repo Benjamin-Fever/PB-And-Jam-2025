@@ -17,6 +17,7 @@ var previous_menu: Control = null
 
 # Main scene
 @onready var main: Main = $Main
+@onready var timer_label: Label = $MenuLayer/TimerLabel
 
 
 ## Built-in functions 
@@ -37,8 +38,10 @@ func _input(event: InputEvent) -> void:
 func _on_main_menu_play_game() -> void:
 	exit_menus()
 	main.visible = true
+	timer_label.visible = true
 func _on_pause_menu_resume_game() -> void:
 	exit_menus()
+	timer_label.visible = true
 
 
 # Open settings
@@ -58,7 +61,9 @@ func _on_settings_exit_settings() -> void:
 
 
 func _on_pause_menu_switch_to_main_menu() -> void:
+	pause_menu.visible = false
 	main.visible = false
+	timer_label.visible = false
 	in_menu = true
 	get_tree().paused = true
 	main_menu.visible = true

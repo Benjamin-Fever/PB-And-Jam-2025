@@ -1,10 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://2jokg6iru7i1"]
+[gd_scene load_steps=8 format=3 uid="uid://2jokg6iru7i1"]
 
 [ext_resource type="Script" uid="uid://cemp1q8m0o2d8" path="res://main_game/game_manager.gd" id="1_hh5cm"]
 [ext_resource type="PackedScene" uid="uid://dbxpwbg420xsr" path="res://menus/main_menu.tscn" id="2_k1ogt"]
 [ext_resource type="PackedScene" uid="uid://cm4iruq2lcx8q" path="res://menus/settings/settings.tscn" id="3_gatuf"]
 [ext_resource type="PackedScene" uid="uid://c4iqd8io31frq" path="res://menus/pause_menu.tscn" id="4_itkp0"]
 [ext_resource type="PackedScene" uid="uid://c0evnx66fdwj0" path="res://main_game/main.tscn" id="4_so1fb"]
+[ext_resource type="Theme" uid="uid://dxc28yv08vb7w" path="res://menus/theme.tres" id="5_03upy"]
+
+[sub_resource type="GDScript" id="GDScript_b3buw"]
+script/source = "extends Label
+
+
+@onready var timer: Timer = $Timer
+
+
+func _process(_delta: float) -> void:
+	text = String.num(timer.time_left, 0)
+"
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("menu_layer")]
 process_mode = 3
@@ -13,6 +25,28 @@ menu_layer = NodePath("MenuLayer")
 
 [node name="MenuLayer" type="CanvasLayer" parent="."]
 process_mode = 2
+
+[node name="TimerLabel" type="Label" parent="MenuLayer"]
+process_mode = 1
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -53.0
+offset_top = 26.0
+offset_right = 53.0
+offset_bottom = 154.0
+grow_horizontal = 2
+theme = ExtResource("5_03upy")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 93
+text = "30"
+horizontal_alignment = 1
+script = SubResource("GDScript_b3buw")
+
+[node name="Timer" type="Timer" parent="MenuLayer/TimerLabel"]
+wait_time = 30.0
+autostart = true
 
 [node name="MainMenu" parent="MenuLayer" instance=ExtResource("2_k1ogt")]
 
@@ -26,6 +60,7 @@ visible = false
 process_mode = 1
 visible = false
 
+[connection signal="timeout" from="MenuLayer/TimerLabel/Timer" to="Main" method="lose_game"]
 [connection signal="play_game" from="MenuLayer/MainMenu" to="." method="_on_main_menu_play_game"]
 [connection signal="switch_to_settings" from="MenuLayer/MainMenu" to="." method="_on_main_menu_switch_to_settings"]
 [connection signal="exit_settings" from="MenuLayer/Settings" to="." method="_on_settings_exit_settings"]

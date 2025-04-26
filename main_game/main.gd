@@ -11,6 +11,7 @@ const CHAIR = preload("res://npc/chair.tscn")
 
 @onready var npc: NPC = $NPC
 @onready var chair: Sprite2D = $Chair
+@onready var timer_label: Label = $"../MenuLayer/TimerLabel"
 
 
 func _on_npc_burned_up() -> void:
@@ -53,3 +54,7 @@ func destroy_old_npc_chair(new_npc, new_chair) -> void:
 	chair = new_chair
 	
 	npc.update_shave_pos()
+
+
+func lose_game() -> void:
+	print("Wow, you lost!")
