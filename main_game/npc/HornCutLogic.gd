@@ -1,6 +1,8 @@
 extends Area2D
 
-@export var cut_distance : int = 200
+signal saw_complete
+
+@export var cut_distance : int = 1000
 @export var cut_durability : int = 3
 
 @export_group("Refrences")
@@ -8,39 +10,48 @@ extends Area2D
 @export var saw_line : Node2D
 
 
-var saw_item : ItemRegion
+var item : ItemRegion
+
+var start_cut_position : Vector2 = Vector2.ZERO
+var initial_saw_position : Vector2 = Vector2.ZERO
 
 func _ready():
 	area_entered.connect(_on_area_entered)
 	saw_sprite.visible = false
 	saw_line.visible = false
+	initial_saw_position = saw_sprite.global_position
+
 
 func _process(_delta):
 	saw_line.visible = StateManager.current_item == StateManager.ItemState.SAW
+	var mouse_pos = get_global_mouse_position()
+
+	if Input.is_action_just_pressed("mouse_click") and saw_sprite.visible:
+		start_cut_position = mouse_pos
+
+
+	if Input.is_action_pressed("mouse_click") and saw_sprite.visible and start_cut_position != Vector2.ZERO:
+		var dist = start_cut_position.distance_to(mouse_pos)
+		saw_sprite.global_position = saw_sprite.global_position.lerp(initial_saw_position + (mouse_pos - initial_saw_position).normalized() * dist, 0.1)
+		if dist > cut_distance:
+			cut_durability -= 1
+			if cut_durability <= 0:
+				cut_durability = 3
+				StateManager.is_in_action = false
+				item.global_position = mouse_pos
+				item.visible = true
+				emit_signal("saw_complete")
+				queue_free()
 
 
 func _on_area_entered(area):
 	if (area is ItemRegion and (area as ItemRegion).item_state == StateManager.ItemState.SAW):
 		if (StateManager.is_in_action):
 			return
+		var mouse_pos = get_global_mouse_position()
 		saw_sprite.visible = true
 		cut_durability = 3
-		saw_item = area as ItemRegion
-		saw_item.visible = false
+		item = area as ItemRegion
+		item.visible = false
 		StateManager.is_in_action = true
-
-
-
-
-
-# func _process(_delta):
-#     var mouse_pos = get_global_mouse_position()
-#     if (Input.is_action_just_pressed("mouse_click")):
-#         start_position = mouse_pos
-#     if (Input.is_action_pressed("mouse_click")):
-#         var distance = start_position.distance_to(mouse_pos)
-#         if (distance > cut_distance):
-#             start_position = mouse_pos
-#             cut_durability -= 1
-#             if (cut_durability <= 0):
-#                 queue_free()
+		start_cut_position = mouse_pos

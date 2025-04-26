@@ -35,11 +35,11 @@ script = ExtResource("1_tt1kf")
 
 [node name="Bg" type="Sprite2D" parent="."]
 position = Vector2(960, 535)
-scale = Vector2(1.5, 1.5)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_qofrp")
 
 [node name="NPC" parent="." instance=ExtResource("3_os3gg")]
-position = Vector2(952, 347)
+position = Vector2(947, 358)
 
 [node name="ItemSelector" type="Area2D" parent="."]
 script = ExtResource("4_1jkqm")

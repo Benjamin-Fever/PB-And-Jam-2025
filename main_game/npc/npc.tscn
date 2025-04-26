@@ -1,10 +1,30 @@
-[gd_scene load_steps=10 format=3 uid="uid://5krx5qch8jer"]
+[gd_scene load_steps=16 format=3 uid="uid://5krx5qch8jer"]
 
 [ext_resource type="Script" uid="uid://bs1iafo3kh43r" path="res://main_game/npc/npc.gd" id="1_uqrw3"]
 [ext_resource type="Texture2D" uid="uid://dva71v4wwbg8p" path="res://assets/sprite-sheet.png" id="2_cm1li"]
+[ext_resource type="Texture2D" uid="uid://hylr286lopke" path="res://assets/body.png" id="2_gpjxa"]
 [ext_resource type="Script" uid="uid://efircbatjju7" path="res://main_game/npc/HornCutLogic.gd" id="2_hrq28"]
+[ext_resource type="Script" uid="uid://b4iuxip104blw" path="res://main_game/npc/ShaveFurLogic.gd" id="3_6asi0"]
 [ext_resource type="Shader" uid="uid://bra0e8u2ycj0j" path="res://main_game/dotted_line.gdshader" id="4_cm1li"]
 [ext_resource type="Texture2D" uid="uid://frtmtl04402j" path="res://assets/items.png" id="5_cm1li"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpjxa"]
+size = Vector2(208.5, 72.85)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cm1li"]
+shader = ExtResource("4_cm1li")
+shader_parameter/color = Color(0.700737, 0.756901, 0.247151, 1)
+shader_parameter/frequency = 0.34
+shader_parameter/speed = -7.77
+
+[sub_resource type="QuadMesh" id="QuadMesh_6asi0"]
+size = Vector2(205.06, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i18yl"]
+size = Vector2(231, 127.425)
+
+[sub_resource type="QuadMesh" id="QuadMesh_i18yl"]
+size = Vector2(197.915, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wwlxj"]
 size = Vector2(96, 26)
@@ -13,101 +33,165 @@ size = Vector2(96, 26)
 shader = ExtResource("4_cm1li")
 shader_parameter/color = Color(0.700737, 0.756901, 0.247151, 1)
 shader_parameter/frequency = 0.34
-shader_parameter/speed = 7.77
-
-[sub_resource type="QuadMesh" id="QuadMesh_gpjxa"]
-size = Vector2(80, 10)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cm1li"]
-shader = ExtResource("4_cm1li")
-shader_parameter/color = Color(0.700737, 0.756901, 0.247151, 1)
-shader_parameter/frequency = 0.34
 shader_parameter/speed = -7.77
 
-[node name="NPC" type="Node2D" node_paths=PackedStringArray("fur_sprite", "face_sprite", "left_horn", "right_horn")]
+[sub_resource type="QuadMesh" id="QuadMesh_gpjxa"]
+size = Vector2(82.31, 10)
+
+[node name="NPC" type="Node2D" node_paths=PackedStringArray("top_fur", "bottom_fur", "face_sprite", "left_horn", "right_horn")]
 script = ExtResource("1_uqrw3")
-face_color = Color(0.523221, 0.415939, 0.144875, 1)
-fur_sprite = NodePath("Head/Fur")
-face_sprite = NodePath("Head/BaseColor")
-left_horn = NodePath("Head/LHorn")
-right_horn = NodePath("Head/RHorn")
+top_fur = NodePath("TFur")
+bottom_fur = NodePath("LFur")
+face_sprite = NodePath("BaseColor")
+left_horn = NodePath("LHorn")
+right_horn = NodePath("RHorn")
 
-[node name="Head" type="Node2D" parent="."]
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(1, 175)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_gpjxa")
 
-[node name="BaseColor" type="Sprite2D" parent="Head"]
+[node name="BaseColor" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_cm1li")
 hframes = 6
 vframes = 3
 
-[node name="Face" type="Sprite2D" parent="Head"]
+[node name="Face" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_cm1li")
 hframes = 6
 vframes = 3
 frame = 1
 
-[node name="Fur" type="Sprite2D" parent="Head"]
+[node name="TFur" type="Area2D" parent="." node_paths=PackedStringArray("shave_sprite", "shave_line")]
+script = ExtResource("3_6asi0")
+cut_distance = 300
+shave_sprite = NodePath("MeshInstance2D/Sprite2D")
+shave_line = NodePath("MeshInstance2D")
+
+[node name="Fur" type="Sprite2D" parent="TFur"]
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_cm1li")
 hframes = 6
 vframes = 3
 frame = 2
 
-[node name="LHorn" type="Area2D" parent="Head" node_paths=PackedStringArray("saw_sprite", "saw_line")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TFur"]
+position = Vector2(0, -55)
+shape = SubResource("RectangleShape2D_gpjxa")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="TFur"]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_cm1li")
+position = Vector2(6, -58)
+mesh = SubResource("QuadMesh_6asi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="TFur/MeshInstance2D"]
+visible = false
+position = Vector2(146, 15)
+rotation = -0.750492
+scale = Vector2(-0.3, 0.3)
+texture = ExtResource("5_cm1li")
+hframes = 8
+vframes = 5
+frame = 4
+
+[node name="LFur" type="Area2D" parent="." node_paths=PackedStringArray("shave_sprite", "shave_line")]
+script = ExtResource("3_6asi0")
+cut_distance = 300
+shave_sprite = NodePath("MeshInstance2D/Sprite2D")
+shave_line = NodePath("MeshInstance2D")
+
+[node name="Fur" type="Sprite2D" parent="LFur"]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_cm1li")
+hframes = 6
+vframes = 3
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LFur"]
+position = Vector2(-4.5, 110.713)
+shape = SubResource("RectangleShape2D_i18yl")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="LFur"]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_cm1li")
+position = Vector2(-3, 137)
+mesh = SubResource("QuadMesh_i18yl")
+
+[node name="Sprite2D" type="Sprite2D" parent="LFur/MeshInstance2D"]
+visible = false
+position = Vector2(146, 15)
+rotation = -0.750492
+scale = Vector2(-0.3, 0.3)
+texture = ExtResource("5_cm1li")
+hframes = 8
+vframes = 5
+frame = 4
+
+[node name="LHorn" type="Area2D" parent="." node_paths=PackedStringArray("saw_sprite", "saw_line")]
 script = ExtResource("2_hrq28")
+cut_distance = 120
 saw_sprite = NodePath("MeshInstance2D/Sprite2D")
 saw_line = NodePath("MeshInstance2D")
 
-[node name="Horn" type="Sprite2D" parent="Head/LHorn"]
+[node name="Horn" type="Sprite2D" parent="LHorn"]
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_cm1li")
 hframes = 6
 vframes = 3
 frame = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/LHorn"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LHorn"]
 position = Vector2(-57.7635, -31.5)
 shape = SubResource("RectangleShape2D_wwlxj")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Head/LHorn"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="LHorn"]
+visible = false
+z_index = 1
 material = SubResource("ShaderMaterial_6asi0")
 position = Vector2(-53, -28)
-rotation = -0.258012
 mesh = SubResource("QuadMesh_gpjxa")
 
-[node name="Sprite2D" type="Sprite2D" parent="Head/LHorn/MeshInstance2D"]
-position = Vector2(-99.8056, -9.79038)
-rotation = 0.750492
-scale = Vector2(0.3, 0.3)
+[node name="Sprite2D" type="Sprite2D" parent="LHorn/MeshInstance2D"]
+visible = false
+position = Vector2(107, 2)
+rotation = -0.493781
+scale = Vector2(-0.3, 0.3)
 texture = ExtResource("5_cm1li")
 hframes = 8
 vframes = 5
 frame = 3
 
-[node name="RHorn" type="Area2D" parent="Head" node_paths=PackedStringArray("saw_sprite", "saw_line")]
+[node name="RHorn" type="Area2D" parent="." node_paths=PackedStringArray("saw_sprite", "saw_line")]
 script = ExtResource("2_hrq28")
+cut_distance = 120
 saw_sprite = NodePath("MeshInstance2D/Sprite2D")
 saw_line = NodePath("MeshInstance2D")
 
-[node name="Horn" type="Sprite2D" parent="Head/RHorn"]
+[node name="Horn" type="Sprite2D" parent="RHorn"]
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_cm1li")
 hframes = 6
 vframes = 3
 frame = 12
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Head/RHorn"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RHorn"]
 position = Vector2(64.2365, -31.5)
 shape = SubResource("RectangleShape2D_wwlxj")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Head/RHorn"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="RHorn"]
+visible = false
+z_index = 1
 material = SubResource("ShaderMaterial_cm1li")
 position = Vector2(53, -29)
-rotation = 0.258309
 mesh = SubResource("QuadMesh_gpjxa")
 
-[node name="Sprite2D" type="Sprite2D" parent="Head/RHorn/MeshInstance2D"]
+[node name="Sprite2D" type="Sprite2D" parent="RHorn/MeshInstance2D"]
+visible = false
 position = Vector2(100.459, -15.165)
 rotation = -0.750492
 scale = Vector2(-0.3, 0.3)
@@ -115,3 +199,8 @@ texture = ExtResource("5_cm1li")
 hframes = 8
 vframes = 5
 frame = 3
+
+[connection signal="shave_complete" from="TFur" to="." method="_remove_top_fur"]
+[connection signal="shave_complete" from="LFur" to="." method="_remove_bottom_fur"]
+[connection signal="saw_complete" from="LHorn" to="." method="_remove_left_horn"]
+[connection signal="saw_complete" from="RHorn" to="." method="_remove_right_horn"]
