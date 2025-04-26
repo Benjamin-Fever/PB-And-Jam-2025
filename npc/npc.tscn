@@ -3,7 +3,7 @@
 [ext_resource type="Material" uid="uid://d4i25prio44jo" path="res://assets/shaders/npc_burning_material.tres" id="1_ocili"]
 [ext_resource type="Script" uid="uid://bs1iafo3kh43r" path="res://npc/npc.gd" id="1_uqrw3"]
 [ext_resource type="Texture2D" uid="uid://dva71v4wwbg8p" path="res://assets/sprite-sheet.png" id="2_cm1li"]
-[ext_resource type="Texture2D" uid="uid://hylr286lopke" path="res://assets/body.png" id="2_gpjxa"]
+[ext_resource type="Texture2D" uid="uid://cu0wk1a6wq274" path="res://assets/body_types_chair.png" id="3_ocili"]
 [ext_resource type="PackedScene" uid="uid://dl88f08kfcmff" path="res://npc/t_fur.tscn" id="4_uamtn"]
 [ext_resource type="PackedScene" uid="uid://hwgmxhw35tso" path="res://npc/l_fur.tscn" id="5_ocili"]
 [ext_resource type="PackedScene" uid="uid://dt38gppk33tgi" path="res://npc/l_horn.tscn" id="6_phifv"]
@@ -44,50 +44,61 @@ _data = {
 &"burn": SubResource("Animation_ocili")
 }
 
-[node name="NPC" type="Node2D" node_paths=PackedStringArray("top_fur", "bottom_fur", "face_sprite", "left_horn", "right_horn")]
+[node name="NPC" type="Node2D" node_paths=PackedStringArray("top_fur", "bottom_fur", "face_sprite", "left_horn", "right_horn", "head")]
 material = ExtResource("1_ocili")
 script = ExtResource("1_uqrw3")
-top_fur = NodePath("TFur")
-bottom_fur = NodePath("LFur")
-face_sprite = NodePath("BaseColor")
-left_horn = NodePath("LHorn")
-right_horn = NodePath("RHorn")
+top_fur = NodePath("Head/TFur")
+bottom_fur = NodePath("Head/LFur")
+face_sprite = NodePath("Head/BaseColor")
+left_horn = NodePath("Head/LHorn")
+right_horn = NodePath("Head/RHorn")
+head = NodePath("Head")
 
 [node name="Body" type="Sprite2D" parent="."]
 material = ExtResource("1_ocili")
-position = Vector2(1, 175)
+position = Vector2(0, 175)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_gpjxa")
+texture = ExtResource("3_ocili")
+hframes = 4
+frame = 1
 
-[node name="BaseColor" type="Sprite2D" parent="."]
+[node name="Head" type="Node2D" parent="."]
+
+[node name="BaseColor" type="Sprite2D" parent="Head"]
 material = ExtResource("1_ocili")
+position = Vector2(0, -33)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_cm1li")
 hframes = 6
 vframes = 3
 
-[node name="Face" type="Sprite2D" parent="."]
+[node name="Face" type="Sprite2D" parent="Head"]
 material = ExtResource("1_ocili")
+position = Vector2(0, -33)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_cm1li")
 hframes = 6
 vframes = 3
 frame = 1
 
-[node name="TFur" parent="." instance=ExtResource("4_uamtn")]
+[node name="TFur" parent="Head" instance=ExtResource("4_uamtn")]
+position = Vector2(0, -33)
 
-[node name="LFur" parent="." instance=ExtResource("5_ocili")]
+[node name="LFur" parent="Head" instance=ExtResource("5_ocili")]
+position = Vector2(0, -33)
 
-[node name="LHorn" parent="." instance=ExtResource("6_phifv")]
+[node name="LHorn" parent="Head" instance=ExtResource("6_phifv")]
+position = Vector2(0, -33)
 
-[node name="RHorn" parent="." instance=ExtResource("7_wuxkc")]
+[node name="RHorn" parent="Head" instance=ExtResource("7_wuxkc")]
+position = Vector2(0, -33)
 
 [node name="BurnAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_wuxkc")
 }
 
-[connection signal="shave_complete" from="TFur" to="." method="_remove_top_fur"]
-[connection signal="shave_complete" from="LFur" to="." method="_remove_bottom_fur"]
-[connection signal="saw_complete" from="LHorn" to="." method="_remove_left_horn"]
-[connection signal="saw_complete" from="RHorn" to="." method="_remove_right_horn"]
+[connection signal="shave_complete" from="Head/TFur" to="." method="_remove_top_fur"]
+[connection signal="shave_complete" from="Head/LFur" to="." method="_remove_bottom_fur"]
+[connection signal="saw_complete" from="Head/LHorn" to="." method="_remove_left_horn"]
+[connection signal="saw_complete" from="Head/RHorn" to="." method="_remove_right_horn"]

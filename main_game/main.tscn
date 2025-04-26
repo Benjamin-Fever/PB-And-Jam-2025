@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0evnx66fdwj0"]
+[gd_scene load_steps=14 format=3 uid="uid://c0evnx66fdwj0"]
 
 [ext_resource type="Script" uid="uid://dsji2mmx2l1gd" path="res://main_game/main.gd" id="1_tt1kf"]
-[ext_resource type="Texture2D" uid="uid://1i3ejuo1srwu" path="res://assets/bg.png" id="2_qofrp"]
+[ext_resource type="Texture2D" uid="uid://brob48mapy17o" path="res://assets/bg.png" id="2_qofrp"]
 [ext_resource type="PackedScene" uid="uid://5krx5qch8jer" path="res://npc/npc.tscn" id="3_os3gg"]
+[ext_resource type="Texture2D" uid="uid://cu0wk1a6wq274" path="res://assets/body_types_chair.png" id="3_sayuc"]
 [ext_resource type="Script" uid="uid://lf51llnx6jup" path="res://interactible/ItemSelector.gd" id="4_1jkqm"]
 [ext_resource type="PackedScene" uid="uid://vgm28rnd3660" path="res://interactible/shaver.tscn" id="5_7km35"]
 [ext_resource type="PackedScene" uid="uid://d2vu60epyo0j" path="res://interactible/saw.tscn" id="6_7km35"]
@@ -19,12 +20,24 @@ size = Vector2(1, 1)
 script = ExtResource("1_tt1kf")
 
 [node name="Bg" type="Sprite2D" parent="."]
-position = Vector2(960, 535)
+position = Vector2(960, 540)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_qofrp")
 
+[node name="Chair" type="Sprite2D" parent="."]
+position = Vector2(953, 540)
+scale = Vector2(0.385156, 0.385156)
+texture = ExtResource("3_sayuc")
+hframes = 4
+
 [node name="NPC" parent="." instance=ExtResource("3_os3gg")]
 position = Vector2(947, 358)
+face_color = Color(1, 1, 1, 1)
+has_left_horn = true
+has_right_horn = true
+has_top_fur = true
+has_bottom_fur = true
+current_body_type = 0
 
 [node name="ItemSelector" type="Area2D" parent="."]
 script = ExtResource("4_1jkqm")
@@ -33,7 +46,7 @@ script = ExtResource("4_1jkqm")
 shape = SubResource("RectangleShape2D_qofrp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(966, 540)
+position = Vector2(960, 540)
 
 [node name="Interactables" type="Node2D" parent="."]
 
