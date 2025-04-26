@@ -1,7 +1,5 @@
 extends Area2D
 
-signal item_selected(item)
-
 var selected_item : ItemRegion = null
 
 func _process(_delta):
@@ -21,7 +19,8 @@ func _input(event):
 		var item = get_overlapping_areas()[0]
 		if item is ItemRegion:
 			selected_item = item
-			emit_signal("item_selected", item.item_state)
+			StateManager.current_item = item.item_state
+
 	elif event.is_action_released("mouse_click") and selected_item:
 		if selected_item is VoltageRegion:
 			var mouse_pos = get_global_mouse_position()
@@ -29,4 +28,4 @@ func _input(event):
 			selected_item.lever_pivot.global_rotation = angle
 			selected_item.global_rotation = angle
 		selected_item = null
-		emit_signal("item_selected", ItemState.States.NONE)
+		StateManager.current_item = StateManager.ItemState.NONE

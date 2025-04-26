@@ -3,7 +3,7 @@ extends Area2D
 
 
 
-@export var item_state : ItemState.States = ItemState.States.NONE
+@export var item_state : StateManager.ItemState = StateManager.ItemState.NONE
 var home_position : Vector2 = Vector2.ZERO
 
 func _ready():

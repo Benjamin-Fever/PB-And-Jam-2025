@@ -1,11 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0evnx66fdwj0"]
+[gd_scene load_steps=15 format=3 uid="uid://c0evnx66fdwj0"]
 
+[ext_resource type="Script" uid="uid://dsji2mmx2l1gd" path="res://main_game/main.gd" id="1_tt1kf"]
 [ext_resource type="Texture2D" uid="uid://1i3ejuo1srwu" path="res://assets/bg.png" id="2_qofrp"]
 [ext_resource type="Script" uid="uid://dm5kg2m4qklss" path="res://main_game/items/ItemRegion.gd" id="3_60na2"]
 [ext_resource type="PackedScene" uid="uid://5krx5qch8jer" path="res://main_game/npc/npc.tscn" id="3_os3gg"]
-[ext_resource type="Script" uid="uid://gei056kp8rnk" path="res://main_game/items/ItemState.gd" id="3_qm037"]
 [ext_resource type="Script" uid="uid://lf51llnx6jup" path="res://main_game/items/ItemSelector.gd" id="4_1jkqm"]
 [ext_resource type="Script" uid="uid://bx50wh1ea8klh" path="res://main_game/items/VoltageRegion.gd" id="5_1jkqm"]
+[ext_resource type="Script" uid="uid://cl86knhdy2fa3" path="res://main_game/Interaction.gd" id="6_qofrp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qofrp"]
 size = Vector2(1, 1)
@@ -25,10 +26,11 @@ size = Vector2(56.03, 139.153)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1cmj"]
 size = Vector2(80, 80)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d214i"]
-size = Vector2(175, 80)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sayuc"]
+size = Vector2(99.935, 154.715)
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_tt1kf")
 
 [node name="Bg" type="Sprite2D" parent="."]
 position = Vector2(960, 535)
@@ -36,9 +38,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_qofrp")
 
 [node name="NPC" parent="." instance=ExtResource("3_os3gg")]
-
-[node name="ItemState" type="Node2D" parent="."]
-script = ExtResource("3_qm037")
+position = Vector2(952, 347)
 
 [node name="ItemSelector" type="Area2D" parent="."]
 script = ExtResource("4_1jkqm")
@@ -133,38 +133,41 @@ polygon = PackedVector2Array(338, 168, 315, 174, 282, 208, 285, 227, 400, 227, 4
 [node name="Lever" type="Node2D" parent="Interactables"]
 position = Vector2(1258, 574)
 
-[node name="Polygon2D" type="Polygon2D" parent="Interactables/Lever"]
-color = Color(0.13556, 0.13556, 0.13556, 1)
-polygon = PackedVector2Array(-38, -67, 42, -68, 46, 65, -41, 63)
-
-[node name="Polygon2D2" type="Polygon2D" parent="Interactables/Lever"]
-color = Color(0.484797, 0.484797, 0.484797, 1)
-polygon = PackedVector2Array(-25, -48, -26, -1, -19, -3, -19, -13, 19, -13, 22, 1, 29, 0, 27, -49, 8, -49, 7, -78, -10, -78, -8, -49)
-
-[node name="Polygon2D3" type="Polygon2D" parent="Interactables/Lever"]
-visible = false
-position = Vector2(2, -12)
-rotation = -3.14159
-color = Color(0.484797, 0.484797, 0.484797, 1)
-polygon = PackedVector2Array(-25, -48, -26, -1, -19, -3, -19, -13, 19, -13, 22, 1, 29, 0, 27, -49, 8, -49, 7, -78, -10, -78, -8, -49)
-
 [node name="LStrap" type="Area2D" parent="Interactables"]
 position = Vector2(831, 565)
+script = ExtResource("6_qofrp")
+interact_type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/LStrap"]
 shape = SubResource("RectangleShape2D_f1cmj")
 
 [node name="RStrap" type="Area2D" parent="Interactables"]
 position = Vector2(1063, 566)
+script = ExtResource("6_qofrp")
+interact_type = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/RStrap"]
 shape = SubResource("RectangleShape2D_f1cmj")
 
-[node name="Head" type="Area2D" parent="Interactables"]
-position = Vector2(942, 278)
+[node name="Lever" type="Area2D" parent="."]
+position = Vector2(1257, 575)
+script = ExtResource("6_qofrp")
+metadata/_custom_type_script = "uid://cl86knhdy2fa3"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Head"]
-position = Vector2(2.5, 0)
-shape = SubResource("RectangleShape2D_d214i")
+[node name="Polygon2D" type="Polygon2D" parent="Lever"]
+color = Color(0.13556, 0.13556, 0.13556, 1)
+polygon = PackedVector2Array(-38, -67, 42, -68, 46, 65, -41, 63)
 
-[connection signal="item_selected" from="ItemSelector" to="ItemState" method="_change_state"]
+[node name="Polygon2D2" type="Polygon2D" parent="Lever"]
+color = Color(0.484797, 0.484797, 0.484797, 1)
+polygon = PackedVector2Array(-25, -48, -26, -1, -19, -3, -19, -13, 19, -13, 22, 1, 29, 0, 27, -49, 8, -49, 7, -78, -10, -78, -8, -49)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Lever"]
+visible = false
+rotation = -3.14159
+color = Color(0.484797, 0.484797, 0.484797, 1)
+polygon = PackedVector2Array(-25, -48, -26, -1, -19, -3, -19, -13, 19, -13, 22, 1, 29, 0, 27, -49, 8, -49, 7, -78, -10, -78, -8, -49)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever"]
+position = Vector2(0, -6.35748)
+shape = SubResource("RectangleShape2D_sayuc")
