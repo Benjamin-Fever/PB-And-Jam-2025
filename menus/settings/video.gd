@@ -14,19 +14,22 @@ extends ScrollContainer
 ]
 
 @onready var resolution_option: OptionButton = $VBoxContainer/Resolution/ResolutionOption
+@onready var window_mode_option: OptionButton = $VBoxContainer/WindowMode/WindowModeOption
 
 
 func _ready() -> void:
 	if get_window().is_embedded() || Engine.is_embedded_in_editor():
 		for setting in settings_that_dont_work_when_embedded:
 			setting.visible = false
-	
-	resolution_option.clear()
-	for i in range(resolutions.size()):
-		var label = str(resolutions[i].x) + "x" + str(resolutions[i].y)
-		resolution_option.add_item(label, i)
-		if get_window().size == resolutions[i]:
-			resolution_option.select(i)
+	else:
+		resolution_option.clear()
+		for i in range(resolutions.size()):
+			var label = str(resolutions[i].x) + "x" + str(resolutions[i].y)
+			resolution_option.add_item(label, i)
+			if get_window().size == resolutions[i]:
+				resolution_option.select(i)
+		
+		window_mode_option.select(get_window().mode)
 
 
 func _on_resolution_option_item_selected(index: int) -> void:

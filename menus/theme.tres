@@ -22,4 +22,3 @@ Button/styles/hover = ExtResource("1_8bp6l")
 Button/styles/hover_pressed = ExtResource("3_tnb7w")
 Button/styles/normal = ExtResource("2_lc2ve")
 Button/styles/pressed = ExtResource("3_573mk")
-CheckButton/icons/checked = null

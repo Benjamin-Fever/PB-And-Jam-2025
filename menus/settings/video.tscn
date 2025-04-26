@@ -21,7 +21,7 @@ size_flags_vertical = 3
 layout_mode = 2
 title = "Window Mode"
 
-[node name="FullscreenOption" type="OptionButton" parent="VBoxContainer/WindowMode"]
+[node name="WindowModeOption" type="OptionButton" parent="VBoxContainer/WindowMode"]
 layout_mode = 2
 size_flags_horizontal = 6
 item_count = 5
@@ -68,6 +68,6 @@ popup/item_2/id = 2
 popup/item_3/text = "Mailbox"
 popup/item_3/id = 3
 
-[connection signal="item_selected" from="VBoxContainer/WindowMode/FullscreenOption" to="." method="_on_fullscreen_option_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/WindowMode/WindowModeOption" to="." method="_on_fullscreen_option_item_selected"]
 [connection signal="item_selected" from="VBoxContainer/Resolution/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
 [connection signal="item_selected" from="VBoxContainer/Vsync/OptionButton" to="." method="_on_option_button_item_selected"]
