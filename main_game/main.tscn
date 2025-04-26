@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0evnx66fdwj0"]
+[gd_scene load_steps=15 format=3 uid="uid://c0evnx66fdwj0"]
 
 [ext_resource type="Script" uid="uid://dsji2mmx2l1gd" path="res://main_game/main.gd" id="1_tt1kf"]
 [ext_resource type="Texture2D" uid="uid://brob48mapy17o" path="res://assets/bg.png" id="2_qofrp"]
+[ext_resource type="PackedScene" uid="uid://byrw1hxt4fuuo" path="res://interactible/electric_hat.tscn" id="3_i82q8"]
 [ext_resource type="PackedScene" uid="uid://5krx5qch8jer" path="res://npc/npc.tscn" id="3_os3gg"]
 [ext_resource type="PackedScene" uid="uid://p5efufgx1aud" path="res://npc/chair.tscn" id="3_sayuc"]
 [ext_resource type="Script" uid="uid://lf51llnx6jup" path="res://interactible/ItemSelector.gd" id="4_1jkqm"]
@@ -24,6 +25,9 @@ z_index = -4
 position = Vector2(960, 540)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_qofrp")
+
+[node name="ElectricHat" parent="." instance=ExtResource("3_i82q8")]
+position = Vector2(948, 144)
 
 [node name="Chair" parent="." instance=ExtResource("3_sayuc")]
 position = Vector2(947, 540)
