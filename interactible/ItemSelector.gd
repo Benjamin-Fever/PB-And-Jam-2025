@@ -7,6 +7,9 @@ func _process(_delta):
 	global_position = mouse_pos
 
 	if selected_item:
+		if selected_item is ElectricHat:
+			
+			return
 		selected_item.global_position = mouse_pos
 		if selected_item is VoltageRegion:
 			selected_item.global_rotation_degrees = 0
