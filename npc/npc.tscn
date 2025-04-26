@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://5krx5qch8jer"]
+[gd_scene load_steps=12 format=3 uid="uid://5krx5qch8jer"]
 
+[ext_resource type="Material" uid="uid://d4i25prio44jo" path="res://assets/shaders/npc_burning_material.tres" id="1_ocili"]
 [ext_resource type="Script" uid="uid://bs1iafo3kh43r" path="res://npc/npc.gd" id="1_uqrw3"]
 [ext_resource type="Texture2D" uid="uid://dva71v4wwbg8p" path="res://assets/sprite-sheet.png" id="2_cm1li"]
 [ext_resource type="Texture2D" uid="uid://hylr286lopke" path="res://assets/body.png" id="2_gpjxa"]
@@ -8,7 +9,43 @@
 [ext_resource type="PackedScene" uid="uid://dt38gppk33tgi" path="res://npc/l_horn.tscn" id="6_phifv"]
 [ext_resource type="PackedScene" uid="uid://bf57etyxbw7ew" path="res://npc/r_horn.tscn" id="7_wuxkc"]
 
+[sub_resource type="Animation" id="Animation_ocili"]
+resource_name = "burn"
+length = 5.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 5)
+}
+
+[sub_resource type="Animation" id="Animation_phifv"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wuxkc"]
+_data = {
+&"RESET": SubResource("Animation_phifv"),
+&"burn": SubResource("Animation_ocili")
+}
+
 [node name="NPC" type="Node2D" node_paths=PackedStringArray("top_fur", "bottom_fur", "face_sprite", "left_horn", "right_horn")]
+material = ExtResource("1_ocili")
 script = ExtResource("1_uqrw3")
 top_fur = NodePath("TFur")
 bottom_fur = NodePath("LFur")
@@ -17,17 +54,20 @@ left_horn = NodePath("LHorn")
 right_horn = NodePath("RHorn")
 
 [node name="Body" type="Sprite2D" parent="."]
+material = ExtResource("1_ocili")
 position = Vector2(1, 175)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_gpjxa")
 
 [node name="BaseColor" type="Sprite2D" parent="."]
+material = ExtResource("1_ocili")
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_cm1li")
 hframes = 6
 vframes = 3
 
 [node name="Face" type="Sprite2D" parent="."]
+material = ExtResource("1_ocili")
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_cm1li")
 hframes = 6
@@ -41,3 +81,8 @@ frame = 1
 [node name="LHorn" parent="." instance=ExtResource("6_phifv")]
 
 [node name="RHorn" parent="." instance=ExtResource("7_wuxkc")]
+
+[node name="BurnAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wuxkc")
+}

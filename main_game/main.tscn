@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0evnx66fdwj0"]
+[gd_scene load_steps=13 format=3 uid="uid://c0evnx66fdwj0"]
 
-[ext_resource type="Script" path="res://main_game/main.gd" id="1_tt1kf"]
+[ext_resource type="Script" uid="uid://dsji2mmx2l1gd" path="res://main_game/main.gd" id="1_tt1kf"]
 [ext_resource type="Texture2D" uid="uid://1i3ejuo1srwu" path="res://assets/bg.png" id="2_qofrp"]
 [ext_resource type="PackedScene" uid="uid://5krx5qch8jer" path="res://npc/npc.tscn" id="3_os3gg"]
 [ext_resource type="Script" uid="uid://lf51llnx6jup" path="res://interactible/ItemSelector.gd" id="4_1jkqm"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cu7ao8xsukme7" path="res://interactible/l_strap.tscn" id="9_sayuc"]
 [ext_resource type="PackedScene" uid="uid://dfoep86cfvcxf" path="res://interactible/r_strap.tscn" id="10_i82q8"]
 [ext_resource type="PackedScene" uid="uid://cse742bt86tqf" path="res://interactible/lever2.tscn" id="11_d214i"]
-[ext_resource type="Script" uid="uid://bdg2ktsiqw4kl" path="res://interactible/lever_2.gd" id="12_sayuc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qofrp"]
 size = Vector2(1, 1)
@@ -81,5 +80,5 @@ position = Vector2(1063, 566)
 
 [node name="Lever" parent="." instance=ExtResource("11_d214i")]
 position = Vector2(1257, 575)
-script = ExtResource("12_sayuc")
-interact_type = 0
+
+[connection signal="start_electrocution" from="Lever" to="NPC" method="_on_lever_start_electrocution"]

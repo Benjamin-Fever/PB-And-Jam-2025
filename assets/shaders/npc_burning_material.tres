@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://d4i25prio44jo"]
+
+[ext_resource type="Shader" uid="uid://88kxm2ja7y2l" path="res://assets/shaders/npc_burning.gdshader" id="1_ri5t7"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ri5t7"]
+frequency = 0.0159
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2y21r"]
+noise = SubResource("FastNoiseLite_ri5t7")
+
+[resource]
+shader = ExtResource("1_ri5t7")
+shader_parameter/position = Vector2(0.5, 0)
+shader_parameter/radius = 0.0
+shader_parameter/borderWidth = 0.02
+shader_parameter/burnMult = 0.135
+shader_parameter/noiseTexture = SubResource("NoiseTexture2D_2y21r")
+shader_parameter/burnColor = Color(3.08037e-06, 0.74983, 0.92262, 1)

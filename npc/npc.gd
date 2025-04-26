@@ -1,3 +1,4 @@
+class_name NPC
 extends Node2D
 
 @export var face_color : Color = Color(1, 1, 1)
@@ -13,6 +14,9 @@ extends Node2D
 @export var face_sprite : Sprite2D
 @export var left_horn : Node2D
 @export var right_horn : Node2D
+
+
+@onready var burn_animation: AnimationPlayer = $BurnAnimation
 
 
 func _ready():
@@ -37,3 +41,7 @@ func _remove_left_horn():
 
 func _remove_right_horn():
 	has_right_horn = false
+
+
+func _on_lever_start_electrocution() -> void:
+	burn_animation.play("burn")
