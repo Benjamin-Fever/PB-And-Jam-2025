@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c0evnx66fdwj0"]
+[gd_scene load_steps=16 format=3 uid="uid://c0evnx66fdwj0"]
 
 [ext_resource type="Script" uid="uid://dsji2mmx2l1gd" path="res://main_game/main.gd" id="1_tt1kf"]
 [ext_resource type="Texture2D" uid="uid://1i3ejuo1srwu" path="res://assets/bg.png" id="2_qofrp"]
@@ -7,18 +7,19 @@
 [ext_resource type="Script" uid="uid://lf51llnx6jup" path="res://main_game/items/ItemSelector.gd" id="4_1jkqm"]
 [ext_resource type="Script" uid="uid://bx50wh1ea8klh" path="res://main_game/items/VoltageRegion.gd" id="5_1jkqm"]
 [ext_resource type="Script" uid="uid://cl86knhdy2fa3" path="res://main_game/Interaction.gd" id="6_qofrp"]
+[ext_resource type="Texture2D" uid="uid://frtmtl04402j" path="res://assets/items.png" id="6_xvufe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qofrp"]
 size = Vector2(1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_os3gg"]
-size = Vector2(71.7551, 195.088)
+size = Vector2(71.755, 148.358)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvufe"]
-size = Vector2(114.79, 195.088)
+size = Vector2(120.685, 198.163)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7km35"]
-size = Vector2(85, 147.675)
+size = Vector2(106.615, 177.315)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jkqm"]
 size = Vector2(56.03, 139.153)
@@ -54,49 +55,57 @@ position = Vector2(966, 540)
 [node name="Table" type="Node2D" parent="Interactables"]
 
 [node name="Shaver" type="Area2D" parent="Interactables/Table"]
-position = Vector2(1608, 974)
-rotation = 0.373198
+position = Vector2(1605, 985)
 script = ExtResource("3_60na2")
 item_state = 3
 
-[node name="Polygon2D" type="Polygon2D" parent="Interactables/Table/Shaver"]
-position = Vector2(-347, -167)
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(293, 114, 383, 113, 363, 178, 360, 261, 329, 245, 336, 174)
+[node name="Sprite2D" type="Sprite2D" parent="Interactables/Table/Shaver"]
+position = Vector2(11.4546, -17.3722)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_xvufe")
+hframes = 8
+vframes = 5
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Table/Shaver"]
-position = Vector2(-8, 18)
+position = Vector2(-6.00659, -4.50171)
+rotation = 0.331613
 shape = SubResource("RectangleShape2D_os3gg")
 
 [node name="Saw" type="Area2D" parent="Interactables/Table"]
-position = Vector2(1458, 973)
-rotation = 0.403429
+position = Vector2(1431, 987)
 script = ExtResource("3_60na2")
 item_state = 1
 
-[node name="Polygon2D" type="Polygon2D" parent="Interactables/Table/Saw"]
-position = Vector2(-347.456, -167.005)
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(325.74, 111.037, 287.237, 222.066, 271.601, 228.739, 261.126, 298.448, 367.825, 245.293, 376.831, 192.521, 361.734, 190.267, 388.798, 179.802, 368.598, 165.591, 384.783, 142.374, 379.152, 131.73, 413.092, 88.9735)
+[node name="Sprite2D" type="Sprite2D" parent="Interactables/Table/Saw"]
+position = Vector2(11.4546, -17.3722)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_xvufe")
+hframes = 8
+vframes = 5
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Table/Saw"]
-position = Vector2(-8.68787, 17.7534)
-rotation = 0.34422
+position = Vector2(-1, -4)
+rotation = 0.401426
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xvufe")
 
 [node name="Sponge" type="Area2D" parent="Interactables/Table"]
-position = Vector2(1746, 948)
+position = Vector2(1731, 978)
 script = ExtResource("3_60na2")
 item_state = 2
 
-[node name="Polygon2D" type="Polygon2D" parent="Interactables/Table/Sponge"]
-position = Vector2(-347, -167)
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(359, 204, 378, 185, 381, 167, 373, 151, 362, 148, 346, 155, 320, 153, 302, 154, 291, 168, 294, 188, 295, 213, 282, 225, 273, 238, 266, 254, 275, 271, 287, 273, 300, 269, 318, 273, 340, 273, 353, 259, 360, 242, 350, 221)
+[node name="Sprite2D" type="Sprite2D" parent="Interactables/Table/Sponge"]
+position = Vector2(11.4546, -17.3722)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_xvufe")
+hframes = 8
+vframes = 5
+frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Table/Sponge"]
-position = Vector2(-24.1024, 39.2256)
+position = Vector2(-5.99988, -6)
 rotation = 0.356759
 shape = SubResource("RectangleShape2D_7km35")
 

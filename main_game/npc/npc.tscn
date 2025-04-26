@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://5krx5qch8jer"]
+[gd_scene load_steps=10 format=3 uid="uid://5krx5qch8jer"]
 
 [ext_resource type="Script" uid="uid://bs1iafo3kh43r" path="res://main_game/npc/npc.gd" id="1_uqrw3"]
 [ext_resource type="Texture2D" uid="uid://dva71v4wwbg8p" path="res://assets/sprite-sheet.png" id="2_cm1li"]
 [ext_resource type="Script" uid="uid://efircbatjju7" path="res://main_game/npc/HornCutLogic.gd" id="2_hrq28"]
 [ext_resource type="Shader" uid="uid://bra0e8u2ycj0j" path="res://main_game/dotted_line.gdshader" id="4_cm1li"]
+[ext_resource type="Texture2D" uid="uid://frtmtl04402j" path="res://assets/items.png" id="5_cm1li"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wwlxj"]
 size = Vector2(96, 26)
@@ -53,8 +54,10 @@ hframes = 6
 vframes = 3
 frame = 2
 
-[node name="LHorn" type="Area2D" parent="Head"]
+[node name="LHorn" type="Area2D" parent="Head" node_paths=PackedStringArray("saw_sprite", "saw_line")]
 script = ExtResource("2_hrq28")
+saw_sprite = NodePath("MeshInstance2D/Sprite2D")
+saw_line = NodePath("MeshInstance2D")
 
 [node name="Horn" type="Sprite2D" parent="Head/LHorn"]
 scale = Vector2(0.4, 0.4)
@@ -73,15 +76,19 @@ position = Vector2(-53, -28)
 rotation = -0.258012
 mesh = SubResource("QuadMesh_gpjxa")
 
-[node name="Polygon2D" type="Polygon2D" parent="Head/LHorn/MeshInstance2D"]
-position = Vector2(-91.9618, -239.389)
-rotation = 1.03527
-scale = Vector2(0.6, 0.6)
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(325.74, 111.037, 287.237, 222.066, 271.601, 228.739, 261.126, 298.448, 367.825, 245.293, 376.831, 192.521, 361.734, 190.267, 388.798, 179.802, 368.598, 165.591, 384.783, 142.374, 379.152, 131.73, 413.092, 88.9735)
+[node name="Sprite2D" type="Sprite2D" parent="Head/LHorn/MeshInstance2D"]
+position = Vector2(-99.8056, -9.79038)
+rotation = 0.750492
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_cm1li")
+hframes = 8
+vframes = 5
+frame = 3
 
-[node name="RHorn" type="Area2D" parent="Head"]
+[node name="RHorn" type="Area2D" parent="Head" node_paths=PackedStringArray("saw_sprite", "saw_line")]
 script = ExtResource("2_hrq28")
+saw_sprite = NodePath("MeshInstance2D/Sprite2D")
+saw_line = NodePath("MeshInstance2D")
 
 [node name="Horn" type="Sprite2D" parent="Head/RHorn"]
 scale = Vector2(0.4, 0.4)
@@ -99,3 +106,12 @@ material = SubResource("ShaderMaterial_cm1li")
 position = Vector2(53, -29)
 rotation = 0.258309
 mesh = SubResource("QuadMesh_gpjxa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Head/RHorn/MeshInstance2D"]
+position = Vector2(100.459, -15.165)
+rotation = -0.750492
+scale = Vector2(-0.3, 0.3)
+texture = ExtResource("5_cm1li")
+hframes = 8
+vframes = 5
+frame = 3
