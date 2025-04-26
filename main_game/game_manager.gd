@@ -65,7 +65,6 @@ func _on_pause_menu_switch_to_main_menu() -> void:
 
 
 ## General use functions
-
 func exit_menus() -> void:
 	for menu in menus:
 		menu.visible = false

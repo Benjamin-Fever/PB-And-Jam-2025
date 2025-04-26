@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c11kipaa6n0yl"]
+
+[ext_resource type="Script" uid="uid://chta005y07ddn" path="res://menus/settings/Components/setting.gd" id="1_whlsc"]
+
+[node name="Setting" type="HBoxContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_whlsc")
+title = "Setting Name Here"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="VSeparator" type="VSeparator" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
