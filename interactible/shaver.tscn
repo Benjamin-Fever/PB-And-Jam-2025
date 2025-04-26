@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://vgm28rnd3660"]
+
+[ext_resource type="Script" uid="uid://dm5kg2m4qklss" path="res://interactible/ItemRegion.gd" id="1_eei2x"]
+[ext_resource type="Texture2D" uid="uid://frtmtl04402j" path="res://assets/items.png" id="2_b5bd0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_os3gg"]
+size = Vector2(71.755, 148.358)
+
+[node name="Shaver" type="Area2D"]
+script = ExtResource("1_eei2x")
+item_state = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(11.4546, -17.3722)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_b5bd0")
+hframes = 8
+vframes = 5
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6.00659, -4.50171)
+rotation = 0.331613
+shape = SubResource("RectangleShape2D_os3gg")

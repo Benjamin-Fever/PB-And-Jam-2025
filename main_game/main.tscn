@@ -2,18 +2,16 @@
 
 [ext_resource type="Script" path="res://main_game/main.gd" id="1_tt1kf"]
 [ext_resource type="Texture2D" uid="uid://1i3ejuo1srwu" path="res://assets/bg.png" id="2_qofrp"]
-[ext_resource type="Script" uid="uid://dm5kg2m4qklss" path="res://main_game/items/ItemRegion.gd" id="3_60na2"]
-[ext_resource type="PackedScene" uid="uid://5krx5qch8jer" path="res://main_game/npc/npc.tscn" id="3_os3gg"]
-[ext_resource type="Script" uid="uid://lf51llnx6jup" path="res://main_game/items/ItemSelector.gd" id="4_1jkqm"]
-[ext_resource type="Script" uid="uid://bx50wh1ea8klh" path="res://main_game/items/VoltageRegion.gd" id="5_1jkqm"]
-[ext_resource type="Script" path="res://main_game/Interaction.gd" id="6_qofrp"]
+[ext_resource type="Script" uid="uid://dm5kg2m4qklss" path="res://interactible/ItemRegion.gd" id="3_60na2"]
+[ext_resource type="PackedScene" uid="uid://5krx5qch8jer" path="res://npc/npc.tscn" id="3_os3gg"]
+[ext_resource type="Script" uid="uid://lf51llnx6jup" path="res://interactible/ItemSelector.gd" id="4_1jkqm"]
+[ext_resource type="Script" uid="uid://bx50wh1ea8klh" path="res://interactible/VoltageRegion.gd" id="5_1jkqm"]
+[ext_resource type="PackedScene" uid="uid://vgm28rnd3660" path="res://interactible/shaver.tscn" id="5_7km35"]
+[ext_resource type="Script" uid="uid://cl86knhdy2fa3" path="res://interactible/Interaction.gd" id="6_qofrp"]
 [ext_resource type="Texture2D" uid="uid://frtmtl04402j" path="res://assets/items.png" id="6_xvufe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qofrp"]
 size = Vector2(1, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_os3gg"]
-size = Vector2(71.755, 148.358)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvufe"]
 size = Vector2(120.685, 198.163)
@@ -54,23 +52,8 @@ position = Vector2(966, 540)
 
 [node name="Table" type="Node2D" parent="Interactables"]
 
-[node name="Shaver" type="Area2D" parent="Interactables/Table"]
+[node name="Shaver" parent="Interactables/Table" instance=ExtResource("5_7km35")]
 position = Vector2(1605, 985)
-script = ExtResource("3_60na2")
-item_state = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="Interactables/Table/Shaver"]
-position = Vector2(11.4546, -17.3722)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_xvufe")
-hframes = 8
-vframes = 5
-frame = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/Table/Shaver"]
-position = Vector2(-6.00659, -4.50171)
-rotation = 0.331613
-shape = SubResource("RectangleShape2D_os3gg")
 
 [node name="Saw" type="Area2D" parent="Interactables/Table"]
 position = Vector2(1431, 987)
