@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://2jokg6iru7i1"]
+[gd_scene load_steps=20 format=3 uid="uid://2jokg6iru7i1"]
 
 [ext_resource type="Script" uid="uid://cemp1q8m0o2d8" path="res://main_game/game_manager.gd" id="1_hh5cm"]
 [ext_resource type="Texture2D" uid="uid://dsihm6wkl73ha" path="res://assets/true_good_ending_rough_sketch.png" id="2_g1qcn"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c0evnx66fdwj0" path="res://main_game/main.tscn" id="4_so1fb"]
 [ext_resource type="Theme" uid="uid://dxc28yv08vb7w" path="res://menus/theme.tres" id="5_03upy"]
 [ext_resource type="Texture2D" uid="uid://ubwytgs2esd1" path="res://assets/good_ending_rough_sketch.png" id="6_b3buw"]
+[ext_resource type="FontFile" uid="uid://t7d3opkopwbg" path="res://menus/Orbitron-VariableFont_wght.ttf" id="6_rarqy"]
 [ext_resource type="Texture2D" uid="uid://c4666xpd6b4cf" path="res://assets/bad_ending_rough_sketch.png" id="7_7jcwv"]
 
 [sub_resource type="GDScript" id="GDScript_b3buw"]
@@ -567,13 +568,14 @@ visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -53.0
-offset_top = 26.0
-offset_right = 53.0
-offset_bottom = 154.0
+offset_left = -96.0
+offset_top = 42.0
+offset_right = 58.0
+offset_bottom = 170.0
 grow_horizontal = 2
 theme = ExtResource("5_03upy")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_rarqy")
 theme_override_font_sizes/font_size = 93
 text = "30"
 horizontal_alignment = 1

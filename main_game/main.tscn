@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c0evnx66fdwj0"]
+[gd_scene load_steps=24 format=3 uid="uid://c0evnx66fdwj0"]
 
 [ext_resource type="Script" uid="uid://dsji2mmx2l1gd" path="res://main_game/main.gd" id="1_tt1kf"]
 [ext_resource type="Texture2D" uid="uid://brob48mapy17o" path="res://assets/bg.png" id="2_qofrp"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://frtmtl04402j" path="res://assets/items.png" id="13_i82q8"]
 [ext_resource type="Texture2D" uid="uid://dyf157vonewx2" path="res://assets/file.png" id="14_b3klj"]
 [ext_resource type="Script" uid="uid://mxbddqum7b6c" path="res://interactible/file.gd" id="15_0ds30"]
+[ext_resource type="Texture2D" uid="uid://ch088k3l4lkn5" path="res://assets/Clock.png" id="16_8ogqm"]
 
 [sub_resource type="Gradient" id="Gradient_sayuc"]
 offsets = PackedFloat32Array(0)
@@ -76,13 +77,6 @@ position = Vector2(948, 129)
 
 [node name="NPC" parent="." instance=ExtResource("3_os3gg")]
 position = Vector2(947, 358)
-face_color = Color(1, 1, 1, 1)
-has_left_horn = true
-has_right_horn = true
-has_top_fur = true
-has_bottom_fur = true
-is_wet = false
-current_body_type = 0
 
 [node name="ItemSelector" type="Area2D" parent="."]
 script = ExtResource("4_1jkqm")
@@ -169,6 +163,7 @@ offset_bottom = 262.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="Offense" type="Label" parent="File"]
+layout_mode = 0
 offset_left = 51.0
 offset_top = 320.0
 offset_right = 465.0
@@ -176,12 +171,19 @@ offset_bottom = 351.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="Size" type="Label" parent="File"]
+layout_mode = 0
 offset_left = 51.0
 offset_top = 420.0
 offset_right = 465.0
 offset_bottom = 451.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "gaming"
+
+[node name="Clock" type="Sprite2D" parent="."]
+z_index = 7
+position = Vector2(945, 81)
+scale = Vector2(0.460156, 0.460156)
+texture = ExtResource("16_8ogqm")
 
 [connection signal="burned_up" from="NPC" to="." method="_on_npc_burned_up"]
 [connection signal="start_electrocution" from="Lever" to="NPC" method="_on_lever_start_electrocution"]
