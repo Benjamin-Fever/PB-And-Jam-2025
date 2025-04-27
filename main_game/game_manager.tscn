@@ -16,6 +16,10 @@ script/source = "extends Label
 
 func _process(_delta: float) -> void:
 	text = String.num(timer.time_left, 0)
+
+
+func reset_timer() -> void:
+	timer.start()
 "
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("menu_layer")]

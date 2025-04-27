@@ -12,9 +12,12 @@ const CHAIR = preload("res://npc/chair.tscn")
 @onready var npc: NPC = $NPC
 @onready var chair: Sprite2D = $Chair
 @onready var timer_label: Label = $"../MenuLayer/TimerLabel"
+@onready var electric_hat: ElectricHat = $ElectricHat
 
 
 func _on_npc_burned_up() -> void:
+	timer_label.reset_timer()
+	
 	var new_chair = CHAIR.instantiate()
 	new_chair.position = Vector2(START_X_POS, 540)
 	add_child(new_chair)
@@ -54,6 +57,7 @@ func destroy_old_npc_chair(new_npc, new_chair) -> void:
 	chair = new_chair
 	
 	npc.update_shave_pos()
+	electric_hat.locked_in = false
 
 
 func lose_game() -> void:
