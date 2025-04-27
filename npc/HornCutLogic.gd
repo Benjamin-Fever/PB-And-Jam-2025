@@ -9,6 +9,8 @@ signal saw_complete
 @export var saw_sprite : Node2D
 @export var saw_line : Node2D
 
+@onready var horn: Sprite2D = $Horn
+
 
 var item : ItemRegion
 
@@ -20,6 +22,10 @@ func _ready():
 	saw_sprite.visible = false
 	saw_line.visible = false
 	initial_saw_position = saw_sprite.global_position
+	if name == "LHorn":
+		horn.frame = randi_range(6, 11)
+	else:
+		horn.frame = randi_range(12, 17)
 
 
 func _process(_delta):
