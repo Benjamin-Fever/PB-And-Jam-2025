@@ -88,7 +88,7 @@ position = Vector2(1063, 566)
 
 [node name="Lever" parent="." instance=ExtResource("11_d214i")]
 z_index = -1
-position = Vector2(1257, 575)
+position = Vector2(1257, 623)
 
 [connection signal="burned_up" from="NPC" to="." method="_on_npc_burned_up"]
 [connection signal="start_electrocution" from="Lever" to="NPC" method="_on_lever_start_electrocution"]
