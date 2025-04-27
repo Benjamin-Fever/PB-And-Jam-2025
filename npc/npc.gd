@@ -17,6 +17,7 @@ const BODY_TYPE_OFFSETS = [Vector2(0, 0), Vector2(0, -40), Vector2(0, -75)]
 @export var has_right_horn: bool = true
 @export var has_top_fur: bool = true
 @export var has_bottom_fur: bool = true
+@export var is_wet : bool = false
 @export var current_body_type: BodyType = BodyType.SMALL
 
 
@@ -38,17 +39,19 @@ const BODY_TYPE_OFFSETS = [Vector2(0, 0), Vector2(0, -40), Vector2(0, -75)]
 
 func _ready():
 	_update()
-	
-	if not $"../Lever".is_connected("start_electrocution", _on_lever_start_electrocution):
-		$"../Lever".connect("start_electrocution", _on_lever_start_electrocution)
+
 
 
 func _update():
+	if not has_bottom_fur:
+		bottom_fur.queue_free()
+	if not has_top_fur:
+		top_fur.queue_free()
+	if not has_left_horn:
+		left_horn.queue_free()
+	if not has_right_horn:
+		right_horn.queue_free()
 	face_sprite.modulate = face_color
-	top_fur.visible = has_top_fur
-	bottom_fur.visible = has_bottom_fur
-	left_horn.visible = has_left_horn
-	right_horn.visible = has_right_horn
 	head.position = BODY_TYPE_OFFSETS[current_body_type]
 	body.frame = current_body_type + 1
 
@@ -78,7 +81,11 @@ func _on_burn_animation_animation_finished(_anim_name: StringName) -> void:
 
 
 func update_shave_pos() -> void:
-	top_fur.initial_saw_position = top_fur.global_position
-	bottom_fur.initial_saw_position = bottom_fur.global_position
-	left_horn.initial_saw_position = left_horn.global_position
-	right_horn.initial_saw_position = right_horn.global_position
+	if top_fur:
+		top_fur.initial_saw_position = top_fur.global_position
+	if bottom_fur:
+		bottom_fur.initial_saw_position = bottom_fur.global_position
+	if left_horn:
+		left_horn.initial_saw_position = left_horn.global_position
+	if right_horn:
+		right_horn.initial_saw_position = right_horn.global_position

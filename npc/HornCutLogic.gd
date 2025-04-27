@@ -23,9 +23,9 @@ func _ready():
 	saw_line.visible = false
 	initial_saw_position = saw_sprite.global_position
 	if name == "LHorn":
-		horn.frame = randi_range(6, 11)
+		horn.frame = randi_range(12, 23)
 	else:
-		horn.frame = randi_range(12, 17)
+		horn.frame = randi_range(24, 35)
 
 
 func _process(_delta):

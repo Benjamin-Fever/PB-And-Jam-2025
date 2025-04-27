@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://5krx5qch8jer"]
+[gd_scene load_steps=14 format=3 uid="uid://5krx5qch8jer"]
 
 [ext_resource type="Material" uid="uid://d4i25prio44jo" path="res://assets/shaders/npc_burning_material.tres" id="1_ocili"]
 [ext_resource type="Script" uid="uid://bs1iafo3kh43r" path="res://npc/npc.gd" id="1_uqrw3"]
@@ -7,7 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://dl88f08kfcmff" path="res://npc/t_fur.tscn" id="4_uamtn"]
 [ext_resource type="PackedScene" uid="uid://hwgmxhw35tso" path="res://npc/l_fur.tscn" id="5_ocili"]
 [ext_resource type="PackedScene" uid="uid://dt38gppk33tgi" path="res://npc/l_horn.tscn" id="6_phifv"]
+[ext_resource type="Script" uid="uid://btcellv0olhs4" path="res://npc/SpongeLogic.gd" id="7_phifv"]
 [ext_resource type="PackedScene" uid="uid://bf57etyxbw7ew" path="res://npc/r_horn.tscn" id="7_wuxkc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wuxkc"]
+size = Vector2(169, 52)
 
 [sub_resource type="Animation" id="Animation_phifv"]
 length = 0.001
@@ -78,7 +82,7 @@ material = ExtResource("1_ocili")
 position = Vector2(0, -33)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_cm1li")
-hframes = 6
+hframes = 12
 vframes = 3
 
 [node name="Face" type="Sprite2D" parent="Head"]
@@ -86,9 +90,17 @@ material = ExtResource("1_ocili")
 position = Vector2(0, -33)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_cm1li")
-hframes = 6
+hframes = 12
 vframes = 3
 frame = 1
+
+[node name="Wet" type="Area2D" parent="Head"]
+position = Vector2(-1, -33)
+script = ExtResource("7_phifv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/Wet"]
+position = Vector2(-2, -50)
+shape = SubResource("RectangleShape2D_wuxkc")
 
 [node name="TFur" parent="Head" instance=ExtResource("4_uamtn")]
 position = Vector2(0, -33)

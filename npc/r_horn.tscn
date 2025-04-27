@@ -26,9 +26,9 @@ saw_line = NodePath("MeshInstance2D")
 [node name="Horn" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_d07w6")
-hframes = 6
+hframes = 12
 vframes = 3
-frame = 12
+frame = 24
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(64.2365, -31.5)
