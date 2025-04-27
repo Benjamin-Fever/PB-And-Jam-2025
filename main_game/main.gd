@@ -26,6 +26,7 @@ var old_npc: NPC
 var old_chair: Sprite2D
 
 var burned_up_goats := 0
+var saved_goats := 0
 
 
 func _ready() -> void:
@@ -66,23 +67,7 @@ func setup_next_npc() -> void:
 
 
 func _on_npc_burned_up() -> void:
-	
-	var tween = get_tree().create_tween().set_trans(Tween.TRANS_LINEAR)
-	tween.set_parallel()
-	tween.tween_property(next_npc, "position", Vector2(START_X_POS, next_npc.position.y), 3)
-	tween.tween_property(next_chair, "position", Vector2(START_X_POS, next_chair.position.y), 3)
-	tween.set_parallel(false)
-	tween.tween_property(next_npc, "z_index", 0, 0)
-	tween.tween_property(next_chair, "z_index", 0, 0)
-	tween.set_parallel()
-	tween.tween_property(npc, "position", Vector2(-300, npc.position.y), 3)
-	tween.tween_property(chair, "position", Vector2(-300, chair.position.y), 3)
-	tween.tween_property(next_npc, "position", Vector2(END_X_POS, next_npc.position.y), 3)
-	tween.tween_property(next_chair, "position", Vector2(END_X_POS, next_chair.position.y), 3)
-	tween.tween_property(pivot, "rotation", 0, 3)
-	tween.set_parallel(false)
-	tween.tween_callback(destroy_old_npc_chair)
-	
+	move_npc_off_screen()
 	old_npc = npc
 	old_chair = chair
 	npc = next_npc
@@ -116,3 +101,35 @@ func lose_game() -> void:
 	else:
 		print("Bad ending")
 		bad_ending.emit()
+
+
+func move_npc_off_screen() -> void:
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_LINEAR)
+	tween.set_parallel()
+	tween.tween_property(next_npc, "position", Vector2(START_X_POS, next_npc.position.y), 3)
+	tween.tween_property(next_chair, "position", Vector2(START_X_POS, next_chair.position.y), 3)
+	tween.set_parallel(false)
+	tween.tween_property(next_npc, "z_index", 0, 0)
+	tween.tween_property(next_chair, "z_index", 0, 0)
+	tween.set_parallel()
+	tween.tween_property(npc, "position", Vector2(-300, npc.position.y), 3)
+	tween.tween_property(chair, "position", Vector2(-300, chair.position.y), 3)
+	tween.tween_property(next_npc, "position", Vector2(END_X_POS, next_npc.position.y), 3)
+	tween.tween_property(next_chair, "position", Vector2(END_X_POS, next_chair.position.y), 3)
+	tween.tween_property(pivot, "rotation", 0, 3)
+	tween.set_parallel(false)
+	tween.tween_callback(destroy_old_npc_chair)
+
+
+func _on_escape_goat_pressed() -> void:
+	if is_instance_valid(old_npc):
+		return
+	saved_goats += 1
+	move_npc_off_screen()
+	old_npc = npc
+	old_chair = chair
+	npc = next_npc
+	chair = next_chair
+	npc.is_current_npc = true
+	electro_lever.connect("start_electrocution", npc._on_lever_start_electrocution)
+	setup_next_npc()

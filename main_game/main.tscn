@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c0evnx66fdwj0"]
+[gd_scene load_steps=21 format=3 uid="uid://c0evnx66fdwj0"]
 
 [ext_resource type="Script" uid="uid://dsji2mmx2l1gd" path="res://main_game/main.gd" id="1_tt1kf"]
 [ext_resource type="Texture2D" uid="uid://brob48mapy17o" path="res://assets/bg.png" id="2_qofrp"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://m4eiypsbe703" path="res://interactible/lever.tscn" id="8_d214i"]
 [ext_resource type="PackedScene" uid="uid://xmnaehdbd0wk" path="res://interactible/pivot.tscn" id="11_b3klj"]
 [ext_resource type="PackedScene" uid="uid://cse742bt86tqf" path="res://interactible/lever2.tscn" id="11_d214i"]
+[ext_resource type="Texture2D" uid="uid://frtmtl04402j" path="res://assets/items.png" id="13_i82q8"]
 
 [sub_resource type="Gradient" id="Gradient_sayuc"]
 offsets = PackedFloat32Array(0)
@@ -31,6 +32,14 @@ width = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qofrp"]
 size = Vector2(1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ds30"]
+texture = ExtResource("13_i82q8")
+region_rect = Rect2(500, 40, 400, 400)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b3klj"]
+texture = ExtResource("13_i82q8")
+region_rect = Rect2(500, 512.87, 400, 400)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tt1kf")
@@ -114,5 +123,24 @@ position = Vector2(1258, 574)
 z_index = -1
 position = Vector2(1257, 623)
 
+[node name="EscapeGoat" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 512.0
+offset_top = 894.0
+offset_right = 753.0
+offset_bottom = 1077.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/disabled = SubResource("StyleBoxTexture_0ds30")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_b3klj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0ds30")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b3klj")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0ds30")
+
 [connection signal="burned_up" from="NPC" to="." method="_on_npc_burned_up"]
 [connection signal="start_electrocution" from="Lever" to="NPC" method="_on_lever_start_electrocution"]
+[connection signal="pressed" from="EscapeGoat" to="." method="_on_escape_goat_pressed"]
