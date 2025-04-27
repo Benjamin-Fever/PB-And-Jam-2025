@@ -20,6 +20,7 @@ size = Vector2(82.31, 10)
 [node name="RHorn" type="Area2D" node_paths=PackedStringArray("saw_sprite", "saw_line")]
 script = ExtResource("1_hpk55")
 cut_distance = 120
+cut_durability = null
 saw_sprite = NodePath("MeshInstance2D/Sprite2D")
 saw_line = NodePath("MeshInstance2D")
 

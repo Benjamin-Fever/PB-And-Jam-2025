@@ -97,3 +97,7 @@ func play_game() -> void:
 	exit_menus()
 	main.visible = true
 	timer_label.visible = true
+
+
+func _on_button_pressed() -> void:
+	intro.speed_scale = 30

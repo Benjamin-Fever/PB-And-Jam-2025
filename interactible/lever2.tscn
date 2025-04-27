@@ -44,6 +44,7 @@ _data = {
 
 [node name="Lever" type="Area2D"]
 script = ExtResource("1_ceotn")
+interact_type = null
 
 [node name="Items" type="Sprite2D" parent="."]
 position = Vector2(0, 5.96046e-08)

@@ -621,6 +621,21 @@ Almighty Leader recently made a few decrees which vastly increased your departme
 
 Knowing the dire consequences for disappointing Leader, you've stepped up to perform some unskilled labour.\""
 
+[node name="Button" type="Button" parent="MenuLayer/Intro"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -328.0
+offset_top = -162.0
+offset_right = -52.0
+offset_bottom = -54.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Skip >"
+
 [node name="Main" parent="." instance=ExtResource("4_so1fb")]
 process_mode = 1
 visible = false
@@ -643,6 +658,7 @@ libraries = {
 [connection signal="resume_game" from="MenuLayer/PauseMenu" to="." method="_on_pause_menu_resume_game"]
 [connection signal="switch_to_main_menu" from="MenuLayer/PauseMenu" to="." method="_on_pause_menu_switch_to_main_menu"]
 [connection signal="switch_to_settings" from="MenuLayer/PauseMenu" to="." method="_on_pause_menu_switch_to_settings"]
+[connection signal="pressed" from="MenuLayer/Intro/Button" to="." method="_on_button_pressed"]
 [connection signal="bad_ending" from="Main" to="." method="_on_main_bad_ending"]
 [connection signal="good_ending" from="Main" to="." method="_on_main_good_ending"]
 [connection signal="true_good_ending" from="Main" to="." method="_on_main_true_good_ending"]

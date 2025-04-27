@@ -71,9 +71,17 @@ position = Vector2(947, 540)
 [node name="ElectricHat" parent="." instance=ExtResource("3_i82q8")]
 z_index = 2
 position = Vector2(948, 129)
+item_state = null
 
 [node name="NPC" parent="." instance=ExtResource("3_os3gg")]
 position = Vector2(947, 358)
+face_color = null
+has_left_horn = null
+has_right_horn = null
+has_top_fur = null
+has_bottom_fur = null
+is_wet = null
+current_body_type = null
 
 [node name="ItemSelector" type="Area2D" parent="."]
 script = ExtResource("4_1jkqm")
@@ -122,6 +130,7 @@ position = Vector2(1258, 574)
 [node name="Lever" parent="." instance=ExtResource("11_d214i")]
 z_index = -1
 position = Vector2(1257, 623)
+interact_type = null
 
 [node name="EscapeGoat" type="Button" parent="."]
 anchors_preset = 8
