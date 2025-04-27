@@ -15,6 +15,9 @@ var previous_menu: Control = null
 @onready var settings: Settings = $MenuLayer/Settings
 @onready var pause_menu: PauseMenu = $MenuLayer/PauseMenu
 @onready var intro_screen: ColorRect = $MenuLayer/Intro
+@onready var bad_ending: TextureRect = $MenuLayer/BadEnding
+@onready var good_ending: TextureRect = $MenuLayer/GoodEnding
+@onready var true_good_ending: TextureRect = $MenuLayer/TrueGoodEnding
 
 # Animation player
 @onready var endings: AnimationPlayer = $Endings
@@ -31,6 +34,9 @@ func _ready() -> void:
 	AudioManager.play_music("res://assets/audio/Scapegoats.mp3")
 	get_tree().paused = true
 	intro_screen.visible = false
+	bad_ending.visible = false
+	good_ending.visible = false
+	true_good_ending.visible = false
 
 
 func _input(event: InputEvent) -> void:

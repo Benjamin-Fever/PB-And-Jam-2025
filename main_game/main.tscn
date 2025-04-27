@@ -142,13 +142,20 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_0ds30")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_b3klj")
 theme_override_styles/normal = SubResource("StyleBoxTexture_0ds30")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="File" type="TextureRect" parent="."]
 offset_left = -59.0
 offset_top = 1019.0
 offset_right = 466.0
 offset_bottom = 1837.0
 texture = ExtResource("14_b3klj")
 expand_mode = 1
+
+[node name="Label" type="Label" parent="File"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 231.0
+offset_right = 465.0
+offset_bottom = 262.0
 
 [connection signal="burned_up" from="NPC" to="." method="_on_npc_burned_up"]
 [connection signal="start_electrocution" from="Lever" to="NPC" method="_on_lever_start_electrocution"]
