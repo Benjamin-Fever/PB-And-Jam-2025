@@ -15,6 +15,9 @@ var previous_menu: Control = null
 @onready var settings: Settings = $MenuLayer/Settings
 @onready var pause_menu: PauseMenu = $MenuLayer/PauseMenu
 
+# Animation player
+@onready var endings: AnimationPlayer = $Endings
+
 # Main scene
 @onready var main: Main = $Main
 @onready var timer_label: Label = $MenuLayer/TimerLabel
@@ -68,6 +71,16 @@ func _on_pause_menu_switch_to_main_menu() -> void:
 	in_menu = true
 	get_tree().paused = true
 	main_menu.visible = true
+
+
+func _on_main_good_ending() -> void:
+	print("good")
+	endings.play("good_ending")
+
+
+func _on_main_bad_ending() -> void:
+	print("bad")
+	endings.play("bad_ending")
 
 
 ## General use functions

@@ -2,6 +2,9 @@ class_name Main
 extends Node2D
 
 
+signal good_ending()
+signal bad_ending()
+
 const START_X_POS = 2300
 const END_X_POS = 950
 
@@ -21,6 +24,8 @@ var next_npc: NPC
 var next_chair: Sprite2D
 var old_npc: NPC
 var old_chair: Sprite2D
+
+var burned_up_goats := 0
 
 
 func _ready() -> void:
@@ -61,7 +66,6 @@ func setup_next_npc() -> void:
 
 
 func _on_npc_burned_up() -> void:
-	timer_label.reset_timer()
 	
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_LINEAR)
 	tween.set_parallel()
@@ -106,4 +110,9 @@ func destroy_old_npc_chair() -> void:
 
 
 func lose_game() -> void:
-	print("Wow, you lost!")
+	if burned_up_goats >= 5:
+		print("Good ending")
+		good_ending.emit()
+	else:
+		print("Bad ending")
+		bad_ending.emit()

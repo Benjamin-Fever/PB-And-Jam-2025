@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://2jokg6iru7i1"]
+[gd_scene load_steps=14 format=3 uid="uid://2jokg6iru7i1"]
 
 [ext_resource type="Script" uid="uid://cemp1q8m0o2d8" path="res://main_game/game_manager.gd" id="1_hh5cm"]
 [ext_resource type="PackedScene" uid="uid://dbxpwbg420xsr" path="res://menus/main_menu.tscn" id="2_k1ogt"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c4iqd8io31frq" path="res://menus/pause_menu.tscn" id="4_itkp0"]
 [ext_resource type="PackedScene" uid="uid://c0evnx66fdwj0" path="res://main_game/main.tscn" id="4_so1fb"]
 [ext_resource type="Theme" uid="uid://dxc28yv08vb7w" path="res://menus/theme.tres" id="5_03upy"]
+[ext_resource type="Texture2D" uid="uid://ubwytgs2esd1" path="res://assets/good_ending_rough_sketch.png" id="6_b3buw"]
+[ext_resource type="Texture2D" uid="uid://c4666xpd6b4cf" path="res://assets/bad_ending_rough_sketch.png" id="7_7jcwv"]
 
 [sub_resource type="GDScript" id="GDScript_b3buw"]
 script/source = "extends Label
@@ -16,11 +18,249 @@ script/source = "extends Label
 
 func _process(_delta: float) -> void:
 	text = String.num(timer.time_left, 0)
-
-
-func reset_timer() -> void:
-	timer.start()
 "
+
+[sub_resource type="Animation" id="Animation_03upy"]
+resource_name = "good_ending"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoodEnding:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GoodEnding:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GoodEnding:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GoodEnding:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GoodEnding:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_g1qcn"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GoodEnding:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GoodEnding:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GoodEnding:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GoodEnding:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BadEnding:modulate:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BadEnding:modulate:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BadEnding:modulate:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BadEnding:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("GoodEnding:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BadEnding:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_rarqy"]
+resource_name = "bad_ending"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BadEnding:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BadEnding:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BadEnding:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BadEnding:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BadEnding:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b3buw"]
+_data = {
+&"RESET": SubResource("Animation_g1qcn"),
+&"bad_ending": SubResource("Animation_rarqy"),
+&"good_ending": SubResource("Animation_03upy")
+}
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("menu_layer")]
 process_mode = 3
@@ -29,6 +269,29 @@ menu_layer = NodePath("MenuLayer")
 
 [node name="MenuLayer" type="CanvasLayer" parent="."]
 process_mode = 2
+layer = 2
+
+[node name="GoodEnding" type="TextureRect" parent="MenuLayer"]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_b3buw")
+expand_mode = 1
+
+[node name="BadEnding" type="TextureRect" parent="MenuLayer"]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_7jcwv")
+expand_mode = 1
 
 [node name="TimerLabel" type="Label" parent="MenuLayer"]
 process_mode = 1
@@ -49,7 +312,8 @@ horizontal_alignment = 1
 script = SubResource("GDScript_b3buw")
 
 [node name="Timer" type="Timer" parent="MenuLayer/TimerLabel"]
-wait_time = 30.0
+wait_time = 10.0
+one_shot = true
 autostart = true
 
 [node name="MainMenu" parent="MenuLayer" instance=ExtResource("2_k1ogt")]
@@ -64,6 +328,12 @@ visible = false
 process_mode = 1
 visible = false
 
+[node name="Endings" type="AnimationPlayer" parent="."]
+root_node = NodePath("../MenuLayer")
+libraries = {
+&"": SubResource("AnimationLibrary_b3buw")
+}
+
 [connection signal="timeout" from="MenuLayer/TimerLabel/Timer" to="Main" method="lose_game"]
 [connection signal="play_game" from="MenuLayer/MainMenu" to="." method="_on_main_menu_play_game"]
 [connection signal="switch_to_settings" from="MenuLayer/MainMenu" to="." method="_on_main_menu_switch_to_settings"]
@@ -71,3 +341,5 @@ visible = false
 [connection signal="resume_game" from="MenuLayer/PauseMenu" to="." method="_on_pause_menu_resume_game"]
 [connection signal="switch_to_main_menu" from="MenuLayer/PauseMenu" to="." method="_on_pause_menu_switch_to_main_menu"]
 [connection signal="switch_to_settings" from="MenuLayer/PauseMenu" to="." method="_on_pause_menu_switch_to_settings"]
+[connection signal="bad_ending" from="Main" to="." method="_on_main_bad_ending"]
+[connection signal="good_ending" from="Main" to="." method="_on_main_good_ending"]
