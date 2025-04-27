@@ -25,3 +25,4 @@ func _process(delta: float) -> void:
 		npc = $"..".npc
 	if position.y > home_position.y + 60 and not npc.has_bottom_fur and not npc.has_top_fur and not npc.has_left_horn and not npc.has_right_horn:
 		locked_in = true
+		CheckList.mark_done("helmet")

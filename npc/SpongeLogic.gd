@@ -14,3 +14,4 @@ func _on_area_entered(area):
 		if item_region.item_state == StateManager.ItemState.SPONGE:
 			face.frame = 4
 			npc.is_wet = true
+			CheckList.mark_done("wet")

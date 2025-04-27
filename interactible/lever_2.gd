@@ -9,6 +9,10 @@ signal start_electrocution
 @onready var electric_hat: ElectricHat = $"../ElectricHat"
 @onready var pivot: Node2D = $"../Interactables/Voltage/Pivot"
 
+func _process(delta):
+	CheckList.mark_done("voltage", pivot.rotation_degrees >= 140)
+		
+
 
 func interact_with() -> void:
 	if not is_instance_valid(npc):

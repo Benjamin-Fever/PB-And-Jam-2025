@@ -40,6 +40,8 @@ func _process(_delta):
 			item.visible = true
 			emit_signal("shave_complete")
 			StateManager.current_item = StateManager.ItemState.SHAVER
+			if not npc.has_top_fur and not npc.has_bottom_fur:
+					CheckList.mark_done("fur")
 			queue_free()
 
 
