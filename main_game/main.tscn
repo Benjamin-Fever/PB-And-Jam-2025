@@ -32,7 +32,7 @@ position = Vector2(947, 540)
 
 [node name="ElectricHat" parent="." instance=ExtResource("3_i82q8")]
 z_index = 2
-position = Vector2(948, 144)
+position = Vector2(948, 129)
 
 [node name="NPC" parent="." instance=ExtResource("3_os3gg")]
 position = Vector2(947, 358)
@@ -88,7 +88,7 @@ position = Vector2(1063, 566)
 
 [node name="Lever" parent="." instance=ExtResource("11_d214i")]
 z_index = -1
-position = Vector2(1256, 623)
+position = Vector2(1257, 575)
 
 [connection signal="burned_up" from="NPC" to="." method="_on_npc_burned_up"]
 [connection signal="start_electrocution" from="Lever" to="NPC" method="_on_lever_start_electrocution"]

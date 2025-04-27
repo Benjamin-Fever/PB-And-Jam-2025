@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if locked_in:
-		position = Vector2(948, 210)
+		position = Vector2(948, home_position.y + 60)
 		return
 	
 	super(delta)
@@ -23,5 +23,5 @@ func _process(delta: float) -> void:
 	
 	if not is_instance_valid(npc):
 		npc = $"..".npc
-	if position.y > 210 and not npc.has_bottom_fur and not npc.has_top_fur and not npc.has_left_horn and not npc.has_right_horn:
+	if position.y > home_position.y + 60 and not npc.has_bottom_fur and not npc.has_top_fur and not npc.has_left_horn and not npc.has_right_horn:
 		locked_in = true
