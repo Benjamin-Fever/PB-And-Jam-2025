@@ -28,7 +28,6 @@ func _ready() -> void:
 
 
 func setup_next_npc() -> void:
-	print("Setup next npc")
 	var new_chair = CHAIR.instantiate()
 	new_chair.position = Vector2(800, 540)
 	new_chair.z_index = -5
@@ -59,7 +58,6 @@ func setup_next_npc() -> void:
 
 
 func _on_npc_burned_up() -> void:
-	print("NPC burned up")
 	timer_label.reset_timer()
 	
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_LINEAR)
@@ -93,7 +91,6 @@ func reset_materials(new_npc) -> void:
 
 
 func destroy_old_npc_chair() -> void:
-	print("Destory old npc")
 	old_npc.queue_free()
 	old_chair.queue_free()
 	
