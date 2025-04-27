@@ -13,7 +13,7 @@ config_version=5
 config/name="PB & Jam 2025"
 run/main_scene="uid://2jokg6iru7i1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-boot_splash/bg_color=Color(0.470137, 2.63997e-05, 0.374592, 1)
+boot_splash/bg_color=Color(0.7, 0.7, 0.7, 1)
 config/icon="res://icon.svg"
 
 [autoload]
