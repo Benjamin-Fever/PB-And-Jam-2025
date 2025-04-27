@@ -8,7 +8,7 @@ func _ready():
 
 func _on_area_entered(area):
 	if area is ItemRegion:
-		if npc.has_bottom_fur and npc.has_top_fur and npc.has_left_horn and npc.has_right_horn or not npc.is_current_npc:
+		if npc.has_bottom_fur or npc.has_top_fur or npc.has_left_horn or npc.has_right_horn or not npc.is_current_npc:
 			return
 		var item_region = area as ItemRegion
 		if item_region.item_state == StateManager.ItemState.SPONGE:
