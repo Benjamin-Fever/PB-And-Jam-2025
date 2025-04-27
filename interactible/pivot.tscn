@@ -1,9 +1,13 @@
-[gd_scene load_steps=0 format=3 uid="uid://xmnaehdbd0wk"]
+[gd_scene load_steps=2 format=3 uid="uid://xmnaehdbd0wk"]
+
+[ext_resource type="Texture2D" uid="uid://frtmtl04402j" path="res://assets/items.png" id="1_e1e84"]
 
 [node name="Pivot" type="Node2D"]
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(-239, 348)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-72, -5)
 rotation = -1.5708
-color = Color(0.52434, 0.52434, 0.52434, 1)
-polygon = PackedVector2Array(340, 159, 340, 246, 353, 246, 353, 157, 361, 153, 361, 142, 348, 130, 340, 130, 327, 137, 329, 153)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_e1e84")
+hframes = 8
+vframes = 5

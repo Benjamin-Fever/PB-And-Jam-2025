@@ -99,9 +99,10 @@ rotation = -4.66701
 lever_pivot = NodePath("../Pivot")
 
 [node name="Pivot" parent="Interactables/Voltage" instance=ExtResource("11_b3klj")]
-position = Vector2(-1, 36)
+position = Vector2(-10, 66)
 
 [node name="Polygon2D2" type="Polygon2D" parent="Interactables/Voltage"]
+visible = false
 position = Vector2(-349, -169)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(338, 168, 315, 174, 282, 208, 285, 227, 400, 227, 400, 203, 375, 173, 356, 167)
