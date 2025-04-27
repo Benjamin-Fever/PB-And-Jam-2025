@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c0evnx66fdwj0"]
+[gd_scene load_steps=16 format=3 uid="uid://c0evnx66fdwj0"]
 
 [ext_resource type="Script" uid="uid://dsji2mmx2l1gd" path="res://main_game/main.gd" id="1_tt1kf"]
 [ext_resource type="Texture2D" uid="uid://brob48mapy17o" path="res://assets/bg.png" id="2_qofrp"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://m4eiypsbe703" path="res://interactible/lever.tscn" id="8_d214i"]
 [ext_resource type="PackedScene" uid="uid://cu7ao8xsukme7" path="res://interactible/l_strap.tscn" id="9_sayuc"]
 [ext_resource type="PackedScene" uid="uid://dfoep86cfvcxf" path="res://interactible/r_strap.tscn" id="10_i82q8"]
+[ext_resource type="PackedScene" uid="uid://xmnaehdbd0wk" path="res://interactible/pivot.tscn" id="11_b3klj"]
 [ext_resource type="PackedScene" uid="uid://cse742bt86tqf" path="res://interactible/lever2.tscn" id="11_d214i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qofrp"]
@@ -67,14 +68,8 @@ position = Vector2(1262, 382)
 position = Vector2(1, 35)
 lever_pivot = NodePath("../Pivot")
 
-[node name="Pivot" type="Node2D" parent="Interactables/Voltage"]
+[node name="Pivot" parent="Interactables/Voltage" instance=ExtResource("11_b3klj")]
 position = Vector2(-1, 36)
-
-[node name="Polygon2D" type="Polygon2D" parent="Interactables/Voltage/Pivot"]
-position = Vector2(-239, 348)
-rotation = -1.5708
-color = Color(0.52434, 0.52434, 0.52434, 1)
-polygon = PackedVector2Array(340, 159, 340, 246, 353, 246, 353, 157, 361, 153, 361, 142, 348, 130, 340, 130, 327, 137, 329, 153)
 
 [node name="Polygon2D2" type="Polygon2D" parent="Interactables/Voltage"]
 position = Vector2(-349, -169)

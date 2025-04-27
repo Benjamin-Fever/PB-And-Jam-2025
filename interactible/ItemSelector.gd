@@ -11,6 +11,7 @@ func _process(_delta):
 		if selected_item is VoltageRegion:
 			selected_item.global_rotation_degrees = 0
 			var angle = mouse_pos.angle_to_point(selected_item.lever_pivot.global_position)
+			
 			selected_item.lever_pivot.global_rotation = angle
 
 
