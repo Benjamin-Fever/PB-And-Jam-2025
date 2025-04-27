@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c0evnx66fdwj0"]
+[gd_scene load_steps=14 format=3 uid="uid://c0evnx66fdwj0"]
 
 [ext_resource type="Script" uid="uid://dsji2mmx2l1gd" path="res://main_game/main.gd" id="1_tt1kf"]
 [ext_resource type="Texture2D" uid="uid://brob48mapy17o" path="res://assets/bg.png" id="2_qofrp"]
@@ -10,8 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://d2vu60epyo0j" path="res://interactible/saw.tscn" id="6_7km35"]
 [ext_resource type="PackedScene" uid="uid://0rgcdwbx45g2" path="res://interactible/sponge.tscn" id="7_f1cmj"]
 [ext_resource type="PackedScene" uid="uid://m4eiypsbe703" path="res://interactible/lever.tscn" id="8_d214i"]
-[ext_resource type="PackedScene" uid="uid://cu7ao8xsukme7" path="res://interactible/l_strap.tscn" id="9_sayuc"]
-[ext_resource type="PackedScene" uid="uid://dfoep86cfvcxf" path="res://interactible/r_strap.tscn" id="10_i82q8"]
 [ext_resource type="PackedScene" uid="uid://xmnaehdbd0wk" path="res://interactible/pivot.tscn" id="11_b3klj"]
 [ext_resource type="PackedScene" uid="uid://cse742bt86tqf" path="res://interactible/lever2.tscn" id="11_d214i"]
 
@@ -79,12 +77,6 @@ polygon = PackedVector2Array(338, 168, 315, 174, 282, 208, 285, 227, 400, 227, 4
 
 [node name="Lever" type="Node2D" parent="Interactables"]
 position = Vector2(1258, 574)
-
-[node name="LStrap" parent="Interactables" instance=ExtResource("9_sayuc")]
-position = Vector2(831, 565)
-
-[node name="RStrap" parent="Interactables" instance=ExtResource("10_i82q8")]
-position = Vector2(1063, 566)
 
 [node name="Lever" parent="." instance=ExtResource("11_d214i")]
 z_index = -1
