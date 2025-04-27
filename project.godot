@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 StateManager="*res://main_game/StateManager.gd"
+AudioManager="*res://main_game/AudioManager.gd"
 
 [display]
 

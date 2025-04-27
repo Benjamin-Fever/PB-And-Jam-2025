@@ -33,6 +33,11 @@ func _process(_delta):
 
 
 	if Input.is_action_pressed("mouse_click") and saw_sprite.visible and start_cut_position != Vector2.ZERO:
+		match StateManager.current_item:
+			StateManager.ItemState.SAW:
+				pass
+
+
 		var dist = start_cut_position.distance_to(mouse_pos)
 		saw_sprite.global_position = saw_sprite.global_position.lerp(initial_saw_position + (mouse_pos - initial_saw_position).normalized() * dist, 0.1)
 		if dist > cut_distance:
