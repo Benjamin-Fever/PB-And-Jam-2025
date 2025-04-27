@@ -68,6 +68,7 @@ func setup_next_npc() -> void:
 
 
 func _on_npc_burned_up() -> void:
+	burned_up_goats += 1
 	move_npc_off_screen()
 	old_npc = npc
 	old_chair = chair
