@@ -43,6 +43,8 @@ func setup_next_npc() -> void:
 	new_npc.position = Vector2(800, 358)
 	new_npc.material = new_npc.material.duplicate(true)
 	new_npc.material.set_shader_parameter("radius", 0.0)
+	var noise: NoiseTexture2D = new_npc.material.get_shader_parameter("noiseTexture")
+	noise.noise.seed = randi()
 	new_npc.z_index = -5
 	add_child(new_npc)
 	call_deferred("reset_materials", new_npc)
