@@ -20,6 +20,7 @@ const CHAIR = preload("res://npc/chair.tscn")
 @onready var pivot: Node2D = $Interactables/Voltage/Pivot
 @onready var lever: VoltageRegion = $Interactables/Voltage/Lever
 @onready var electro_lever: ElectrocutionLever = $Lever
+@onready var file: File = $File
 
 var next_npc: NPC
 var next_chair: Sprite2D
@@ -29,9 +30,77 @@ var old_chair: Sprite2D
 var burned_up_goats := 0
 var saved_goats := 0
 
+var names = [
+	"Kid A",
+	"Hermione C",
+	"Subaru O",
+	"Billy G",
+	"Henry B",
+	"Nanny Ray Cyrus",
+	"Billy McPhee",
+	"Nanny T. James",
+	"Baaabara R",
+	"LeBron J",
+	"Kendrick L",
+	"Shrek O",
+	"R Kill",
+	"Fran F",
+	"Rebel Yell",
+	"V Goat",
+	"R Ray",
+	"Couronne Lochoise",
+	"S Frisk",
+	"Capricorn R",
+	"Phil G",
+	"Jeff S",
+	"M Tumnus",
+	"Betty W",
+	"J Bhuna",
+	"Nurul S",
+	"P Phillips",
+	"L Gonzalo",
+	"Carryl A",
+	"R O'Shea",
+	"V Pratley",
+	"R McDonald",
+	"Andrew A",
+	"A Gosht",
+	"Rogan J",
+]
+
+var offences = [
+	"Bleating and entering",
+	"Kidding around",
+	"Improper pupil shape",
+	"Grass slaughter",
+	"Pastural assault",
+	"Conspiracy to commit treason",
+	"Disturbing the peace",
+	"Herbicide",
+	"Kidnapping",
+	"Insurance fraud",
+	"Identity theft",
+	"Credit card fraud",
+	"Parole violation",
+	"Tax evasion",
+	"Parking violation",
+	"Brandishing head-mounted weapon",
+	"Devil worship",
+	"Ram and run",
+	"Aggravated assault",
+	"Fleecing",
+	"Rambunctiousness",
+	"Caught at the border",
+	"Goat trafficking",
+	"Possession of opioids",
+]
+
 
 func _ready() -> void:
 	setup_next_npc()
+	file.name_label.text = names.pick_random()
+	file.offense_label.text = offences.pick_random()
+	file.size_label.text = str(npc.current_body_type)
 
 
 func setup_next_npc() -> void:
@@ -94,6 +163,10 @@ func destroy_old_npc_chair() -> void:
 	
 	lever.global_position = pivot.global_position
 	lever.global_rotation = pivot.global_rotation
+	
+	file.name_label.text = names.pick_random()
+	file.offense_label.text = offences.pick_random()
+	file.size_label.text = str(npc.current_body_type)
 
 
 func lose_game() -> void:
