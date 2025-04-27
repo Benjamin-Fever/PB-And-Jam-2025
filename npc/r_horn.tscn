@@ -36,7 +36,7 @@ shape = SubResource("RectangleShape2D_wwlxj")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 visible = false
-z_index = 1
+z_index = 5
 material = SubResource("ShaderMaterial_cm1li")
 position = Vector2(53, -29)
 mesh = SubResource("QuadMesh_gpjxa")
