@@ -17,17 +17,17 @@ grow_vertical = 2
 theme = ExtResource("1_jykqg")
 script = ExtResource("1_2e4a5")
 
+[node name="Video" parent="." instance=ExtResource("2_n0cus")]
+layout_mode = 1
+
 [node name="Exit" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -29.0
-offset_bottom = 31.0
+offset_left = -110.0
+offset_bottom = 103.0
 grow_horizontal = 0
 text = "X"
-
-[node name="Video" parent="." instance=ExtResource("2_n0cus")]
-layout_mode = 1
 
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
