@@ -1,58 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://cse742bt86tqf"]
+[gd_scene load_steps=7 format=3 uid="uid://cse742bt86tqf"]
 
 [ext_resource type="Script" uid="uid://bdg2ktsiqw4kl" path="res://interactible/lever_2.gd" id="1_ceotn"]
+[ext_resource type="Texture2D" uid="uid://frtmtl04402j" path="res://assets/items.png" id="2_ohcoo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sayuc"]
 size = Vector2(99.935, 154.715)
 
 [sub_resource type="Animation" id="Animation_ohcoo"]
 length = 0.001
-tracks/0/type = "bezier"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Polygon2D2:scale:x")
+tracks/0/path = NodePath("Items:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Polygon2D2:scale:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
 }
 
 [sub_resource type="Animation" id="Animation_ceotn"]
 resource_name = "flick"
-tracks/0/type = "bezier"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Polygon2D2:scale:x")
+tracks/0/path = NodePath("Items:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Polygon2D2:scale:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(2, 2),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, -1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, -0.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7pu75"]
@@ -64,19 +45,14 @@ _data = {
 [node name="Lever" type="Area2D"]
 script = ExtResource("1_ceotn")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.13556, 0.13556, 0.13556, 1)
-polygon = PackedVector2Array(-38, -67, 42, -68, 46, 65, -41, 63)
-
-[node name="Polygon2D2" type="Polygon2D" parent="."]
-color = Color(0.484797, 0.484797, 0.484797, 1)
-polygon = PackedVector2Array(-25, -48, -26, -1, -19, -3, -19, -13, 19, -13, 22, 1, 29, 0, 27, -49, 8, -49, 7, -78, -10, -78, -8, -49)
-
-[node name="Polygon2D3" type="Polygon2D" parent="."]
-visible = false
-rotation = -3.14159
-color = Color(0.484797, 0.484797, 0.484797, 1)
-polygon = PackedVector2Array(-25, -48, -26, -1, -19, -3, -19, -13, 19, -13, 22, 1, 29, 0, 27, -49, 8, -49, 7, -78, -10, -78, -8, -49)
+[node name="Items" type="Sprite2D" parent="."]
+position = Vector2(0, 5.96046e-08)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ohcoo")
+offset = Vector2(19.2837, -110.193)
+hframes = 8
+vframes = 5
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6.35748)

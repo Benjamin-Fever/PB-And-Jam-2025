@@ -13,9 +13,9 @@ var current_item: StateManager.ItemState :
 			ItemState.SHAVER:
 				AudioManager.play_sound("res://assets/audio/shaver-held-loop.mp3")
 			ItemState.SAW:
-				AudioManager.play_sound("res://assets/audio/pickup-saw.mp3")
+				AudioManager.play_sound("res://assets/audio/saw-pickup-loud.mp3")
 			ItemState.SPONGE:
-				AudioManager.play_sound("res://assets/audio/sponge-pickup.mp3")
+				AudioManager.play_sound("res://assets/audio/sponge-pickup-loud.mp3")
 
 
 var _state : StateManager.ItemState
