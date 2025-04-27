@@ -14,6 +14,7 @@ const CHAIR = preload("res://npc/chair.tscn")
 @onready var timer_label: Label = $"../MenuLayer/TimerLabel"
 @onready var electric_hat: ElectricHat = $ElectricHat
 @onready var pivot: Node2D = $Interactables/Voltage/Pivot
+@onready var lever: VoltageRegion = $Interactables/Voltage/Lever
 
 
 func _on_npc_burned_up() -> void:
@@ -60,6 +61,9 @@ func destroy_old_npc_chair(new_npc, new_chair) -> void:
 	
 	npc.update_shave_pos()
 	electric_hat.locked_in = false
+	
+	lever.global_position = pivot.global_position
+	lever.global_rotation = pivot.global_rotation
 
 
 func lose_game() -> void:
