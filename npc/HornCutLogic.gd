@@ -57,7 +57,7 @@ func _process(_delta):
 
 
 func _on_area_entered(area):
-	if (area is ItemRegion and (area as ItemRegion).item_state == StateManager.ItemState.SAW):
+	if (area is ItemRegion and (area as ItemRegion).item_state == StateManager.ItemState.SAW) and npc.is_current_npc:
 		if (StateManager.is_in_action):
 			return
 		var mouse_pos = get_global_mouse_position()
