@@ -10,6 +10,7 @@ signal saw_complete
 @export var saw_line : Node2D
 
 @onready var horn: Sprite2D = $Horn
+@onready var npc: NPC = $"../.."
 
 
 var item : ItemRegion
@@ -31,7 +32,7 @@ func _ready():
 func _process(_delta):
 	initial_saw_position = saw_sprite.global_position
 	
-	saw_line.visible = StateManager.current_item == StateManager.ItemState.SAW
+	saw_line.visible = StateManager.current_item == StateManager.ItemState.SAW and npc.is_current_npc
 	var mouse_pos = get_global_mouse_position()
 
 	if Input.is_action_just_pressed("mouse_click") and saw_sprite.visible:

@@ -43,6 +43,7 @@ func setup_next_npc() -> void:
 	new_npc.position = Vector2(800, 358)
 	new_npc.material = new_npc.material.duplicate(true)
 	new_npc.material.set_shader_parameter("radius", 0.0)
+	new_npc.is_current_npc = false
 	var noise: NoiseTexture2D = new_npc.material.get_shader_parameter("noiseTexture")
 	noise.noise.seed = randi()
 	new_npc.z_index = -5
@@ -82,6 +83,7 @@ func _on_npc_burned_up() -> void:
 	old_chair = chair
 	npc = next_npc
 	chair = next_chair
+	npc.is_current_npc = true
 	electro_lever.connect("start_electrocution", npc._on_lever_start_electrocution)
 	setup_next_npc()
 

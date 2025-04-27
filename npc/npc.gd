@@ -36,6 +36,8 @@ const BODY_TYPE_OFFSETS = [Vector2(0, 0), Vector2(0, -40), Vector2(0, -75)]
 @onready var face: Sprite2D = $Head/Face
 @onready var base_color: Sprite2D = $Head/BaseColor
 
+var is_current_npc = true
+
 
 func _ready():
 	_update()

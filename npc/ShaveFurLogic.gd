@@ -8,6 +8,8 @@ signal shave_complete
 @export var shave_sprite : Node2D
 @export var shave_line : Node2D
 
+@onready var npc: NPC = $"../.."
+
 var item : ItemRegion
 
 var start_cut_position : Vector2 = Vector2.ZERO
@@ -20,7 +22,7 @@ func _ready():
 	initial_saw_position = shave_sprite.global_position
 
 func _process(_delta):
-	shave_line.visible = StateManager.current_item == StateManager.ItemState.SHAVER
+	shave_line.visible = StateManager.current_item == StateManager.ItemState.SHAVER and npc.is_current_npc
 	var mouse_pos = get_global_mouse_position()
 
 	if Input.is_action_just_pressed("mouse_click") and shave_sprite.visible:
