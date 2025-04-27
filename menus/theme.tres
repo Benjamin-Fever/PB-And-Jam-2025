@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://dxc28yv08vb7w"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://dxc28yv08vb7w"]
 
 [ext_resource type="StyleBox" uid="uid://dl14owcqmg74s" path="res://menus/styles/button_hover.tres" id="1_8bp6l"]
 [ext_resource type="StyleBox" uid="uid://ck03au0btbqwu" path="res://menus/styles/button_disabled.tres" id="1_lc2ve"]
@@ -8,6 +8,19 @@
 [ext_resource type="StyleBox" uid="uid://bflejwrxty8q3" path="res://menus/styles/button_hover_pressed.tres" id="3_tnb7w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16meu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5x8ia"]
+bg_color = Color(0.321728, 0.321728, 0.321728, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.201527, 0.201527, 0.201526, 1)
+border_blend = true
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_573mk"]
 bg_color = Color(1, 1, 1, 1)
@@ -57,6 +70,7 @@ Button/styles/hover_pressed = ExtResource("3_tnb7w")
 Button/styles/normal = ExtResource("2_lc2ve")
 Button/styles/pressed = ExtResource("3_573mk")
 Label/fonts/font = ExtResource("1_tnb7w")
+Panel/styles/panel = SubResource("StyleBoxFlat_5x8ia")
 PopupMenu/colors/font_color = Color(0.290196, 0.290196, 0.290196, 1)
 PopupMenu/colors/font_hover_color = Color(0.290196, 0.290196, 0.290196, 1)
 PopupMenu/colors/font_separator_color = Color(0.290196, 0.290196, 0.290196, 1)
