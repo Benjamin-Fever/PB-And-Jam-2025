@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://2jokg6iru7i1"]
+[gd_scene load_steps=19 format=3 uid="uid://2jokg6iru7i1"]
 
 [ext_resource type="Script" uid="uid://cemp1q8m0o2d8" path="res://main_game/game_manager.gd" id="1_hh5cm"]
 [ext_resource type="Texture2D" uid="uid://dsihm6wkl73ha" path="res://assets/true_good_ending_rough_sketch.png" id="2_g1qcn"]
@@ -380,6 +380,145 @@ _data = {
 &"true_good_ending": SubResource("Animation_vibjp")
 }
 
+[sub_resource type="Animation" id="Animation_di7ay"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuLayer/Intro:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuLayer/Intro:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuLayer/Intro:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuLayer/Intro:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuLayer/Intro:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_7c73r"]
+resource_name = "intro"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuLayer/Intro:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuLayer/Intro:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 18, 20)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuLayer/Intro:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 18, 20)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuLayer/Intro:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 18, 20)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuLayer/Intro:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 18, 20)
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(17.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_game"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jtado"]
+_data = {
+&"RESET": SubResource("Animation_di7ay"),
+&"intro": SubResource("Animation_7c73r")
+}
+
 [node name="GameManager" type="Node" node_paths=PackedStringArray("menu_layer")]
 process_mode = 3
 script = ExtResource("1_hh5cm")
@@ -453,6 +592,50 @@ visible = false
 [node name="PauseMenu" parent="MenuLayer" instance=ExtResource("4_itkp0")]
 visible = false
 
+[node name="Intro" type="ColorRect" parent="MenuLayer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="IntroText" type="RichTextLabel" parent="MenuLayer/Intro"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -553.0
+offset_top = -305.0
+offset_right = 553.0
+offset_bottom = 305.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 51
+text = "\"You are a career bureaucrat on Euthanasia Row.
+
+Almighty Leader recently made a few decrees which vastly increased your department's workload and prompted hasty resignations from your front-line staff. Nobody wants to work these days. 
+
+Knowing the dire consequences for disappointing Leader, you've stepped up to perform some unskilled labour.\""
+
+[node name="Button" type="Button" parent="MenuLayer/Intro"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -328.0
+offset_top = -162.0
+offset_right = -52.0
+offset_bottom = -54.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Skip >"
+
 [node name="Main" parent="." instance=ExtResource("4_so1fb")]
 process_mode = 1
 visible = false
@@ -463,6 +646,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_b3buw")
 }
 
+[node name="Intro" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jtado")
+}
+
 [connection signal="timeout" from="MenuLayer/TimerLabel/Timer" to="Main" method="lose_game"]
 [connection signal="play_game" from="MenuLayer/MainMenu" to="." method="_on_main_menu_play_game"]
 [connection signal="switch_to_settings" from="MenuLayer/MainMenu" to="." method="_on_main_menu_switch_to_settings"]
@@ -470,6 +658,7 @@ libraries = {
 [connection signal="resume_game" from="MenuLayer/PauseMenu" to="." method="_on_pause_menu_resume_game"]
 [connection signal="switch_to_main_menu" from="MenuLayer/PauseMenu" to="." method="_on_pause_menu_switch_to_main_menu"]
 [connection signal="switch_to_settings" from="MenuLayer/PauseMenu" to="." method="_on_pause_menu_switch_to_settings"]
+[connection signal="pressed" from="MenuLayer/Intro/Button" to="." method="_on_button_pressed"]
 [connection signal="bad_ending" from="Main" to="." method="_on_main_bad_ending"]
 [connection signal="good_ending" from="Main" to="." method="_on_main_good_ending"]
 [connection signal="true_good_ending" from="Main" to="." method="_on_main_true_good_ending"]

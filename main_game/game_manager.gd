@@ -10,13 +10,15 @@ var previous_menu: Control = null
 ## Onready variables
 # Menus
 @onready var in_menu: bool = is_instance_valid(menu_layer)
-@onready var menus: Array = menu_layer.get_children()
+@onready var menus: Array = [$MenuLayer/MainMenu, $MenuLayer/Settings, $MenuLayer/PauseMenu]
 @onready var main_menu: MainMenu = $MenuLayer/MainMenu
 @onready var settings: Settings = $MenuLayer/Settings
 @onready var pause_menu: PauseMenu = $MenuLayer/PauseMenu
+@onready var intro_screen: ColorRect = $MenuLayer/Intro
 
 # Animation player
 @onready var endings: AnimationPlayer = $Endings
+@onready var intro: AnimationPlayer = $Intro
 
 # Main scene
 @onready var main: Main = $Main
@@ -28,6 +30,7 @@ func _ready() -> void:
 	# Pause the game on startup because it loads into the main menu
 	AudioManager.play_music("res://assets/audio/Scapegoats.mp3")
 	get_tree().paused = true
+	intro_screen.visible = false
 
 
 func _input(event: InputEvent) -> void:
@@ -40,12 +43,9 @@ func _input(event: InputEvent) -> void:
 ## Signals
 # Play game
 func _on_main_menu_play_game() -> void:
-	exit_menus()
-	main.visible = true
-	timer_label.visible = true
+	intro.play("intro")
 func _on_pause_menu_resume_game() -> void:
-	exit_menus()
-	timer_label.visible = true
+	intro.play("intro")
 
 
 # Open settings
@@ -91,3 +91,13 @@ func exit_menus() -> void:
 		menu.visible = false
 	in_menu = false
 	get_tree().paused = false
+
+
+func play_game() -> void:
+	exit_menus()
+	main.visible = true
+	timer_label.visible = true
+
+
+func _on_button_pressed() -> void:
+	intro.speed_scale = 30

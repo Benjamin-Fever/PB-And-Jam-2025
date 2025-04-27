@@ -10,6 +10,7 @@ size = Vector2(204, 131)
 [node name="ElectricHat" type="Area2D"]
 z_index = 4
 script = ExtResource("1_yc7jb")
+item_state = null
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(17, 0)
