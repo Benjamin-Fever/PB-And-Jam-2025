@@ -38,6 +38,8 @@ const BODY_TYPE_OFFSETS = [Vector2(0, 0), Vector2(0, -40), Vector2(0, -75)]
 
 func _ready():
 	_update()
+	
+	$"../Lever".connect("start_electrocution", _on_lever_start_electrocution)
 
 
 func _update():

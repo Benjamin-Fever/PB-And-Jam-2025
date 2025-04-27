@@ -35,6 +35,7 @@ func _on_npc_burned_up() -> void:
 	new_npc.material.set_shader_parameter("radius", 0.0)
 	add_child(new_npc)
 	call_deferred("reset_materials", new_npc)
+	new_npc.connect("burned_up", _on_npc_burned_up)
 	
 	var tween = get_tree().create_tween().set_trans(Tween.TRANS_LINEAR)
 	tween.set_parallel()
