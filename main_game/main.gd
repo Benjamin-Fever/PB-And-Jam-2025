@@ -13,6 +13,7 @@ const CHAIR = preload("res://npc/chair.tscn")
 @onready var chair: Sprite2D = $Chair
 @onready var timer_label: Label = $"../MenuLayer/TimerLabel"
 @onready var electric_hat: ElectricHat = $ElectricHat
+@onready var pivot: Node2D = $Interactables/Voltage/Pivot
 
 
 func _on_npc_burned_up() -> void:
@@ -40,6 +41,7 @@ func _on_npc_burned_up() -> void:
 	tween.tween_property(chair, "position", Vector2(-300, chair.position.y), 3)
 	tween.tween_property(new_npc, "position", Vector2(END_X_POS, new_npc.position.y), 3)
 	tween.tween_property(new_chair, "position", Vector2(END_X_POS, new_chair.position.y), 3)
+	tween.tween_property(pivot, "rotation", 0, 3)
 	tween.set_parallel(false)
 	tween.tween_callback(destroy_old_npc_chair.bind(new_npc, new_chair))
 
