@@ -104,11 +104,9 @@ frame = 1
 
 [node name="LHorn" parent="Head" instance=ExtResource("6_phifv")]
 position = Vector2(0, -33)
-cut_durability = null
 
 [node name="RHorn" parent="Head" instance=ExtResource("7_wuxkc")]
 position = Vector2(0, -33)
-cut_durability = null
 
 [node name="BaseColor" type="Sprite2D" parent="Head"]
 material = ExtResource("1_ocili")
