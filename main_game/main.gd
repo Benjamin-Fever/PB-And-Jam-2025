@@ -4,6 +4,7 @@ extends Node2D
 
 signal good_ending()
 signal bad_ending()
+signal true_good_ending()
 
 const START_X_POS = 2300
 const END_X_POS = 950
@@ -96,10 +97,10 @@ func destroy_old_npc_chair() -> void:
 
 func lose_game() -> void:
 	if burned_up_goats >= 5:
-		print("Good ending")
 		good_ending.emit()
+	elif saved_goats >= 5:
+		true_good_ending.emit()
 	else:
-		print("Bad ending")
 		bad_ending.emit()
 
 

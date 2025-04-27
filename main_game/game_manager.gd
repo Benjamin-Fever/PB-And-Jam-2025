@@ -74,13 +74,15 @@ func _on_pause_menu_switch_to_main_menu() -> void:
 
 
 func _on_main_good_ending() -> void:
-	print("good")
 	endings.play("good_ending")
 
 
 func _on_main_bad_ending() -> void:
-	print("bad")
 	endings.play("bad_ending")
+
+
+func _on_main_true_good_ending() -> void:
+	endings.play("true_good_ending")
 
 
 ## General use functions
