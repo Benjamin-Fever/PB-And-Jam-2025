@@ -3,7 +3,7 @@
 [ext_resource type="Shader" uid="uid://88kxm2ja7y2l" path="res://assets/shaders/npc_burning.gdshader" id="1_ri5t7"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ri5t7"]
-frequency = 0.0159
+frequency = 0.0041
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2y21r"]
 noise = SubResource("FastNoiseLite_ri5t7")
