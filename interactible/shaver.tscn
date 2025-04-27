@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://vgm28rnd3660"]
+[gd_scene load_steps=5 format=3 uid="uid://vgm28rnd3660"]
 
 [ext_resource type="Script" uid="uid://dm5kg2m4qklss" path="res://interactible/ItemRegion.gd" id="1_eei2x"]
+[ext_resource type="AudioStream" uid="uid://iet8n3qc4sg3" path="res://assets/audio/shaver-held-loop.mp3" id="2_6wuh1"]
 [ext_resource type="Texture2D" uid="uid://frtmtl04402j" path="res://assets/items.png" id="2_b5bd0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_os3gg"]
@@ -8,6 +9,7 @@ size = Vector2(71.755, 148.358)
 
 [node name="Shaver" type="Area2D"]
 script = ExtResource("1_eei2x")
+held_sound = ExtResource("2_6wuh1")
 item_state = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
