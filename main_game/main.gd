@@ -15,9 +15,12 @@ const CHAIR = preload("res://npc/chair.tscn")
 @onready var electric_hat: ElectricHat = $ElectricHat
 @onready var pivot: Node2D = $Interactables/Voltage/Pivot
 @onready var lever: VoltageRegion = $Interactables/Voltage/Lever
+@onready var electro_lever: ElectrocutionLever = $Lever
 
 var next_npc: NPC
 var next_chair: Sprite2D
+var old_npc: NPC
+var old_chair: Sprite2D
 
 
 func _ready() -> void:
@@ -75,9 +78,11 @@ func _on_npc_burned_up() -> void:
 	tween.set_parallel(false)
 	tween.tween_callback(destroy_old_npc_chair)
 	
+	old_npc = npc
+	old_chair = chair
 	npc = next_npc
 	chair = next_chair
-	lever.connect("start_electrocution", npc._on_lever_start_electrocution)
+	electro_lever.connect("start_electrocution", npc._on_lever_start_electrocution)
 	setup_next_npc()
 
 
@@ -88,8 +93,9 @@ func reset_materials(new_npc) -> void:
 
 
 func destroy_old_npc_chair() -> void:
-	npc.queue_free()
-	chair.queue_free()
+	print("Destory old npc")
+	old_npc.queue_free()
+	old_chair.queue_free()
 	
 	npc.update_shave_pos()
 	electric_hat.locked_in = false

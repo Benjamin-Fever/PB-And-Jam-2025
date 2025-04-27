@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dl88f08kfcmff" path="res://npc/t_fur.tscn" id="4_uamtn"]
 [ext_resource type="PackedScene" uid="uid://hwgmxhw35tso" path="res://npc/l_fur.tscn" id="5_ocili"]
 [ext_resource type="PackedScene" uid="uid://dt38gppk33tgi" path="res://npc/l_horn.tscn" id="6_phifv"]
-[ext_resource type="Script" uid="uid://btcellv0olhs4" path="res://npc/SpongeLogic.gd" id="7_phifv"]
+[ext_resource type="Script" path="res://npc/SpongeLogic.gd" id="7_phifv"]
 [ext_resource type="PackedScene" uid="uid://bf57etyxbw7ew" path="res://npc/r_horn.tscn" id="7_wuxkc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wuxkc"]
