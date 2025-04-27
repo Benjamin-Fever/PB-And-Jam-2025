@@ -53,6 +53,8 @@ func _process(_delta):
 				item.global_position = mouse_pos
 				item.visible = true
 				emit_signal("saw_complete")
+				if not npc.has_left_horn and not npc.has_right_horn:
+					CheckList.mark_done("horns")
 				queue_free()
 
 

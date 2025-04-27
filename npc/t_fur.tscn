@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://frtmtl04402j" path="res://assets/items.png" id="4_5ygmt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpjxa"]
-size = Vector2(208.5, 72.85)
+size = Vector2(208.5, 46.425)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cm1li"]
 shader = ExtResource("3_83ws1")
@@ -31,7 +31,7 @@ vframes = 3
 frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -55)
+position = Vector2(0, -68.2125)
 shape = SubResource("RectangleShape2D_gpjxa")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]

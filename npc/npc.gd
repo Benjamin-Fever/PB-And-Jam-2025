@@ -36,11 +36,19 @@ const BODY_TYPE_OFFSETS = [Vector2(0, 0), Vector2(0, -40), Vector2(0, -75)]
 @onready var face: Sprite2D = $Head/Face
 @onready var base_color: Sprite2D = $Head/BaseColor
 
-var is_current_npc = true
+var current_npc : bool = true
+var is_current_npc : bool :
+	get:
+		return current_npc
+	set(value):
+		current_npc = value
+		if value:
+			CheckList.init_state(self)
 
 
 func _ready():
 	_update()
+	
 
 
 
