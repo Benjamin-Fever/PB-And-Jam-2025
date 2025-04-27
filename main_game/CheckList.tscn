@@ -10,10 +10,11 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 22.0
-offset_top = -593.0
+offset_top = -690.05
 offset_right = 403.0
-offset_bottom = -313.0
+offset_bottom = -410.05
 grow_vertical = 0
+scale = Vector2(1.5, 1.5)
 theme_override_constants/separation = 0
 
 [node name="Horns" type="HBoxContainer" parent="Control"]
@@ -21,14 +22,13 @@ layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="Control/Horns"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
+theme_override_colors/icon_pressed_color = Color(0.426377, 0.426378, 0.426378, 1)
 button_mask = 0
 flat = true
 
 [node name="Label" type="Label" parent="Control/Horns"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 35
 text = "Horns removed"
 
 [node name="Fur" type="HBoxContainer" parent="Control"]
@@ -36,12 +36,13 @@ layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="Control/Fur"]
 layout_mode = 2
+theme_override_colors/icon_pressed_color = Color(0.426377, 0.426378, 0.426378, 1)
 button_mask = 0
 flat = true
 
 [node name="Label" type="Label" parent="Control/Fur"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 35
 text = "Fur removed"
 
 [node name="Wet" type="HBoxContainer" parent="Control"]
@@ -49,12 +50,13 @@ layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="Control/Wet"]
 layout_mode = 2
+theme_override_colors/icon_pressed_color = Color(0.426377, 0.426378, 0.426378, 1)
 button_mask = 0
 flat = true
 
 [node name="Label" type="Label" parent="Control/Wet"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 35
 text = "Wet Scalp"
 
 [node name="Helmet" type="HBoxContainer" parent="Control"]
@@ -62,12 +64,13 @@ layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="Control/Helmet"]
 layout_mode = 2
+theme_override_colors/icon_pressed_color = Color(0.426377, 0.426378, 0.426378, 1)
 button_mask = 0
 flat = true
 
 [node name="Label" type="Label" parent="Control/Helmet"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 35
 text = "Lower Helmet"
 
 [node name="Voltage" type="HBoxContainer" parent="Control"]
@@ -75,10 +78,11 @@ layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="Control/Voltage"]
 layout_mode = 2
+theme_override_colors/icon_pressed_color = Color(0.426377, 0.426378, 0.426378, 1)
 button_mask = 0
 flat = true
 
 [node name="Label" type="Label" parent="Control/Voltage"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 35
 text = "Set Voltage"
