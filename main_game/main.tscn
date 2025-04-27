@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0evnx66fdwj0"]
+[gd_scene load_steps=16 format=3 uid="uid://c0evnx66fdwj0"]
 
 [ext_resource type="Script" uid="uid://dsji2mmx2l1gd" path="res://main_game/main.gd" id="1_tt1kf"]
 [ext_resource type="Texture2D" uid="uid://brob48mapy17o" path="res://assets/bg.png" id="2_qofrp"]
@@ -13,17 +13,40 @@
 [ext_resource type="PackedScene" uid="uid://xmnaehdbd0wk" path="res://interactible/pivot.tscn" id="11_b3klj"]
 [ext_resource type="PackedScene" uid="uid://cse742bt86tqf" path="res://interactible/lever2.tscn" id="11_d214i"]
 
+[sub_resource type="Gradient" id="Gradient_sayuc"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.662021, 0.851063, 0.978222, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_i82q8"]
+gradient = SubResource("Gradient_sayuc")
+width = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qofrp"]
 size = Vector2(1, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tt1kf")
 
-[node name="Bg" type="Sprite2D" parent="."]
+[node name="WindowCutout" type="Polygon2D" parent="."]
+clip_children = 1
 z_index = -4
 position = Vector2(960, 540)
 scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(2692, -920, 2618, 1398, -2450, 1304, -2362, -1594, 2872, -1600, 1926, -832, 1800, -834, 844, -834, 844, -276, 1800, -278, 1800, -830, 1800, -834, 1932, -832)
+
+[node name="BG" type="Sprite2D" parent="WindowCutout"]
 texture = ExtResource("2_qofrp")
+
+[node name="WindowBG" type="Sprite2D" parent="."]
+z_index = -4
+position = Vector2(776114, 73530.6)
+scale = Vector2(228245, 77980.6)
+texture = SubResource("GradientTexture1D_i82q8")
+
+[node name="Window" type="Sprite2D" parent="."]
+position = Vector2(1621.13, 262.375)
+scale = Vector2(477.75, 279.25)
+texture = SubResource("GradientTexture1D_i82q8")
 
 [node name="Chair" parent="." instance=ExtResource("3_sayuc")]
 position = Vector2(947, 540)

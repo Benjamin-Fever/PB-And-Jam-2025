@@ -16,6 +16,8 @@ const CHAIR = preload("res://npc/chair.tscn")
 @onready var pivot: Node2D = $Interactables/Voltage/Pivot
 @onready var lever: VoltageRegion = $Interactables/Voltage/Lever
 
+var next_npc: NPC
+
 
 func _on_npc_burned_up() -> void:
 	timer_label.reset_timer()
