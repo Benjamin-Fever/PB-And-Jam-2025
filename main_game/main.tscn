@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c0evnx66fdwj0"]
+[gd_scene load_steps=18 format=3 uid="uid://c0evnx66fdwj0"]
 
 [ext_resource type="Script" uid="uid://dsji2mmx2l1gd" path="res://main_game/main.gd" id="1_tt1kf"]
 [ext_resource type="Texture2D" uid="uid://brob48mapy17o" path="res://assets/bg.png" id="2_qofrp"]
@@ -21,6 +21,14 @@ colors = PackedColorArray(0.662021, 0.851063, 0.978222, 1)
 gradient = SubResource("Gradient_sayuc")
 width = 1
 
+[sub_resource type="Gradient" id="Gradient_i82q8"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.662021, 0.851063, 0.978222, 0.552941)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b3klj"]
+gradient = SubResource("Gradient_i82q8")
+width = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qofrp"]
 size = Vector2(1, 1)
 
@@ -38,15 +46,15 @@ polygon = PackedVector2Array(2692, -920, 2618, 1398, -2450, 1304, -2362, -1594, 
 texture = ExtResource("2_qofrp")
 
 [node name="WindowBG" type="Sprite2D" parent="."]
-z_index = -4
-position = Vector2(776114, 73530.6)
-scale = Vector2(228245, 77980.6)
+z_index = -6
+position = Vector2(1621, 262)
+scale = Vector2(478, 278)
 texture = SubResource("GradientTexture1D_i82q8")
 
 [node name="Window" type="Sprite2D" parent="."]
 position = Vector2(1621.13, 262.375)
 scale = Vector2(477.75, 279.25)
-texture = SubResource("GradientTexture1D_i82q8")
+texture = SubResource("GradientTexture1D_b3klj")
 
 [node name="Chair" parent="." instance=ExtResource("3_sayuc")]
 position = Vector2(947, 540)
