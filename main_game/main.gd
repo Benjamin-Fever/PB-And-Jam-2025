@@ -96,7 +96,7 @@ func destroy_old_npc_chair() -> void:
 
 
 func lose_game() -> void:
-	if burned_up_goats >= 5:
+	if burned_up_goats >= 4:
 		good_ending.emit()
 	elif saved_goats >= 5:
 		true_good_ending.emit()
