@@ -30,6 +30,7 @@ func _on_npc_burned_up() -> void:
 	new_npc.has_left_horn = randf() > 0.5
 	new_npc.has_right_horn = randf() > 0.5
 	new_npc.current_body_type = randi_range(NPC.BodyType.SMALL, NPC.BodyType.LARGE)
+	new_npc.face_color = Color.from_ok_hsl(0.15, 1.0, randf())
 	new_npc.position = Vector2(START_X_POS, 358)
 	new_npc.material = new_npc.material.duplicate(true)
 	new_npc.material.set_shader_parameter("radius", 0.0)
