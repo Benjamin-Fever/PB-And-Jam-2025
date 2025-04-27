@@ -100,7 +100,7 @@ func _ready() -> void:
 	setup_next_npc()
 	file.name_label.text = names.pick_random()
 	file.offense_label.text = offences.pick_random()
-	file.size_label.text = str(npc.current_body_type)
+	file.size_label.text = str(npc.current_body_type + 1)
 
 
 func setup_next_npc() -> void:
