@@ -66,6 +66,7 @@ position = Vector2(1262, 382)
 
 [node name="Lever" parent="Interactables/Voltage" node_paths=PackedStringArray("lever_pivot") instance=ExtResource("8_d214i")]
 position = Vector2(1, 35)
+rotation = -4.66701
 lever_pivot = NodePath("../Pivot")
 
 [node name="Pivot" parent="Interactables/Voltage" instance=ExtResource("11_b3klj")]

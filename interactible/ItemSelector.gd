@@ -10,8 +10,7 @@ func _process(_delta):
 		selected_item.global_position = mouse_pos
 		if selected_item is VoltageRegion:
 			selected_item.global_rotation_degrees = 0
-			var angle = mouse_pos.angle_to_point(selected_item.lever_pivot.global_position)
-			
+			var angle = abs(mouse_pos.angle_to_point(selected_item.lever_pivot.global_position))
 			selected_item.lever_pivot.global_rotation = angle
 
 
@@ -28,8 +27,8 @@ func _input(event):
 		if selected_item is VoltageRegion:
 			var mouse_pos = get_global_mouse_position()
 			var angle = mouse_pos.angle_to_point(selected_item.lever_pivot.global_position)
-			selected_item.lever_pivot.global_rotation = angle
-			selected_item.global_rotation = angle
+			selected_item.lever_pivot.global_rotation = abs(angle)
+			selected_item.global_rotation = abs(angle)
 		selected_item = null
 		AudioManager.stop()
 		StateManager.current_item = StateManager.ItemState.NONE
