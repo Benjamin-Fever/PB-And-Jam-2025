@@ -23,6 +23,7 @@ var previous_menu: Control = null
 ## Built-in functions 
 func _ready() -> void:
 	# Pause the game on startup because it loads into the main menu
+	AudioManager.play_music("res://assets/audio/Scapegoats.mp3")
 	get_tree().paused = true
 
 

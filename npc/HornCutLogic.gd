@@ -39,9 +39,7 @@ func _process(_delta):
 
 
 	if Input.is_action_pressed("mouse_click") and saw_sprite.visible and start_cut_position != Vector2.ZERO:
-		match StateManager.current_item:
-			StateManager.ItemState.SAW:
-				pass
+		AudioManager.play_sound("res://assets/audio/sawing-loop.mp3")
 
 
 		var dist = start_cut_position.distance_to(mouse_pos)

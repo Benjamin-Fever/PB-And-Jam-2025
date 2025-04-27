@@ -30,5 +30,5 @@ func _input(event):
 			selected_item.lever_pivot.global_rotation = abs(angle)
 			selected_item.global_rotation = abs(angle)
 		selected_item = null
-		AudioManager.stop()
+		AudioManager.play_sound("")
 		StateManager.current_item = StateManager.ItemState.NONE

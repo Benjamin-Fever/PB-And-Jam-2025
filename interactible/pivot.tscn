@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://xmnaehdbd0wk"]
+[gd_scene load_steps=0 format=3 uid="uid://xmnaehdbd0wk"]
 
 [node name="Pivot" type="Node2D"]
 

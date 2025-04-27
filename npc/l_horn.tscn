@@ -35,14 +35,12 @@ position = Vector2(-57.7635, -31.5)
 shape = SubResource("RectangleShape2D_wwlxj")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-visible = false
 z_index = 5
 material = SubResource("ShaderMaterial_6asi0")
 position = Vector2(-53, -28)
 mesh = SubResource("QuadMesh_gpjxa")
 
 [node name="Sprite2D" type="Sprite2D" parent="MeshInstance2D"]
-visible = false
 position = Vector2(107, 2)
 rotation = -0.493781
 scale = Vector2(-0.3, 0.3)
