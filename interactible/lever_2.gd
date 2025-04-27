@@ -7,12 +7,13 @@ signal start_electrocution
 @onready var flick_animator: AnimationPlayer = $FlickAnimator
 @onready var npc: NPC = $"../NPC"
 @onready var electric_hat: ElectricHat = $"../ElectricHat"
+@onready var pivot: Node2D = $"../Interactables/Voltage/Pivot"
 
 
 func interact_with() -> void:
 	if not is_instance_valid(npc):
 		npc = $"..".npc
-	if npc.has_bottom_fur or npc.has_top_fur or npc.has_left_horn or npc.has_right_horn or not electric_hat.locked_in:
+	if npc.has_bottom_fur or npc.has_top_fur or npc.has_left_horn or npc.has_right_horn or not electric_hat.locked_in or pivot.rotation_degrees < 160:
 		return
 	flick_animator.play("flick")
 
